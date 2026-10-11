@@ -255,8 +255,7 @@ ignores once the mod is removed, so it can be uninstalled at any time.
 ## AI disclosure
 
 This mod was made with an AI assistant (Claude, by Anthropic): the scripts, the data extraction,
-the map icon and the map filter were written by the AI, and the mod was tested in-game by the
-author. It is a hobby project.
+the map icon and the map filter were written by the AI, and I tested the mod in game myself. It is a hobby project.
 
 ## Credits
 
