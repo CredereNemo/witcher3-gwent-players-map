@@ -1,0 +1,49 @@
+# Gwent Players Map - Brazilian Portuguese (br)
+panel_gwentplayersmap;Gwent Players Map 1.0.6
+option_gwm_show_pins;Mostrar marcadores de Gwent
+option_gwm_show_defeated;Mostrar jogadores já vencidos
+option_gwm_icon_placement;Posição do ícone
+preset_value_gwm_side;Ao lado do ícone do comerciante
+preset_value_gwm_replace;No lugar do ícone do comerciante
+preset_value_gwm_overlap;Sobre o ícone do comerciante
+option_gwm_debug;Informações de depuração
+map_category_gwent;Gwent
+option_gwm_notify;Avisar quando um jogador for marcado como vencido
+gwm_label_gwent_player;Jogador de Gwent
+gwm_status_beaten;Já vencido.
+gwm_status_not_beaten;Ainda não vencido.
+gwm_status_card_obtained;Carta obtida.
+gwm_status_card_not_obtained;Carta ainda não obtida.
+gwm_notify_beaten;Gwent: {role} vencido. Marcado no mapa.
+gwm_status_unavailable;Não está mais disponível.
+gwm_note_may_leave;Pode deixar de estar disponível após uma certa missão.
+gwm_note_rescue_first;Precisa ser resgatado antes.
+gwm_role_alchemist;Alquimista
+gwm_role_armorer;Armeiro
+gwm_role_barber;Barbeiro
+gwm_role_blacksmith;Ferreiro
+gwm_role_bloody_baron;Barão Sanguinário
+gwm_role_book_merchant;Livreiro
+gwm_role_brothel_madam;Cafetina do bordel
+gwm_role_butcher;Açougueiro
+gwm_role_crippled_kate;Kate Aleijada
+gwm_role_fergus_graem_armorer;Fergus Graem (armeiro)
+gwm_role_fishmonger;Peixeiro
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Herbalista
+gwm_role_innkeeper;Estalajadeiro
+gwm_role_innkeeper_inn_at_the_crossroads;Estalajadeiro, Estalagem na Encruzilhada
+gwm_role_loan_shark;Agiota
+gwm_role_merchant;Mercador
+gwm_role_nilfgaardian_officer;Oficial nilfgaardiano
+gwm_role_olivier_kingfisher;Olivier (Martim-Pescador)
+gwm_role_quartermaster;Intendente
+gwm_role_shopkeeper;Comerciante
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alquimia, Oxenfurt)
+gwm_role_tailor;Alfaiate
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Mercador de vinhos
+gwm_role_yoana_armorer_s_assistant;Yoana (assistente do armeiro)
+option_gwm_card_size;Tamanho da carta
+preset_value_gwm_card_small;Pequena
+preset_value_gwm_card_large;Grande (clássica)

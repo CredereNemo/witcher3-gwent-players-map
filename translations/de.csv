@@ -1,0 +1,48 @@
+# Gwent Players Map - German (de). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Gwint-Markierungen anzeigen
+option_gwm_show_defeated;Bereits besiegte Spieler anzeigen
+option_gwm_icon_placement;Symbolposition
+preset_value_gwm_side;Neben dem Händlersymbol
+preset_value_gwm_replace;Händlersymbol ersetzen
+preset_value_gwm_overlap;Über dem Händlersymbol
+option_gwm_debug;Debug-Infos
+map_category_gwent;Gwint
+option_gwm_notify;Benachrichtigen, wenn ein Spieler als besiegt markiert wird
+gwm_label_gwent_player;Gwint-Spieler
+gwm_status_beaten;Bereits besiegt.
+gwm_status_not_beaten;Noch nicht besiegt.
+gwm_status_card_obtained;Karte erhalten.
+gwm_status_card_not_obtained;Karte noch nicht erhalten.
+gwm_notify_beaten;Gwint: {role} besiegt. Auf der Karte markiert.
+gwm_status_unavailable;Nicht mehr verfügbar.
+gwm_note_may_leave;Nach einer bestimmten Quest eventuell nicht mehr verfügbar.
+gwm_note_rescue_first;Muss zuerst gerettet werden.
+gwm_role_alchemist;Alchemist
+gwm_role_armorer;Rüstungsschmied
+gwm_role_barber;Barbier
+gwm_role_blacksmith;Schmied
+gwm_role_bloody_baron;Blutiger Baron
+gwm_role_book_merchant;Buchhändler
+gwm_role_brothel_madam;Bordellwirtin
+gwm_role_butcher;Metzger
+gwm_role_crippled_kate;Lahme Kate
+gwm_role_fergus_graem_armorer;Fergus Graem (Rüstungsschmied)
+gwm_role_fishmonger;Fischhändler
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Kräuterkundiger
+gwm_role_innkeeper;Wirt
+gwm_role_innkeeper_inn_at_the_crossroads;Wirt, Gasthaus am Scheideweg
+gwm_role_loan_shark;Geldverleiher
+gwm_role_merchant;Händler
+gwm_role_nilfgaardian_officer;Nilfgaardischer Offizier
+gwm_role_olivier_kingfisher;Olivier (Eisvogel)
+gwm_role_quartermaster;Quartiermeister
+gwm_role_shopkeeper;Ladenbesitzer
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alchemie, Oxenfurt)
+gwm_role_tailor;Schneider
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Weinhändler
+gwm_role_yoana_armorer_s_assistant;Yoana (Gehilfin des Rüstungsschmieds)
+option_gwm_card_size;Kartengröße
+preset_value_gwm_card_small;Klein
+preset_value_gwm_card_large;Groß (klassisch)

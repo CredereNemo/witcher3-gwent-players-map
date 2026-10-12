@@ -1,0 +1,48 @@
+# Gwent Players Map - Arabic (ar). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;إظهار علامات غوينت
+option_gwm_show_defeated;إظهار اللاعبين الذين هُزموا
+option_gwm_icon_placement;موضع الأيقونة
+preset_value_gwm_side;بجوار أيقونة التاجر
+preset_value_gwm_replace;استبدال أيقونة التاجر
+preset_value_gwm_overlap;فوق أيقونة التاجر
+option_gwm_debug;معلومات التصحيح
+map_category_gwent;غوينت
+option_gwm_notify;الإشعار عند تحديد لاعب كمهزوم
+gwm_label_gwent_player;لاعب غوينت
+gwm_status_beaten;هُزم بالفعل.
+gwm_status_not_beaten;لم يُهزم بعد.
+gwm_status_card_obtained;تم الحصول على البطاقة.
+gwm_status_card_not_obtained;لم يتم الحصول على البطاقة بعد.
+gwm_notify_beaten;غوينت: هُزم {role}. تم تحديده على الخريطة.
+gwm_status_unavailable;لم يعد متاحًا.
+gwm_note_may_leave;قد لا يعود متاحًا بعد مهمة معينة.
+gwm_note_rescue_first;يجب إنقاذه أولًا.
+gwm_role_alchemist;خيميائي
+gwm_role_armorer;صانع دروع
+gwm_role_barber;حلاق
+gwm_role_blacksmith;حداد
+gwm_role_bloody_baron;البارون الدموي
+gwm_role_book_merchant;بائع كتب
+gwm_role_brothel_madam;صاحبة الماخور
+gwm_role_butcher;جزار
+gwm_role_crippled_kate;كيت العرجاء
+gwm_role_fergus_graem_armorer;فيرغوس غريم (صانع دروع)
+gwm_role_fishmonger;بائع سمك
+gwm_role_gremist;غريميست
+gwm_role_herbalist;عشّاب
+gwm_role_innkeeper;صاحب نُزل
+gwm_role_innkeeper_inn_at_the_crossroads;صاحب نُزل، نُزل مفترق الطرق
+gwm_role_loan_shark;مُرابٍ
+gwm_role_merchant;تاجر
+gwm_role_nilfgaardian_officer;ضابط نيلفغاردي
+gwm_role_olivier_kingfisher;أوليفييه (الرفراف)
+gwm_role_quartermaster;أمين التموين
+gwm_role_shopkeeper;صاحب متجر
+gwm_role_stjepan_alchemy_oxenfurt;ستيبان (الخيمياء، أوكسنفورت)
+gwm_role_tailor;خياط
+gwm_role_vimme_vivaldi;فيمي فيفالدي
+gwm_role_wine_merchant;تاجر نبيذ
+gwm_role_yoana_armorer_s_assistant;يوانا (مساعدة صانع الدروع)
+option_gwm_card_size;حجم البطاقة
+preset_value_gwm_card_small;صغير
+preset_value_gwm_card_large;كبير (كلاسيكي)

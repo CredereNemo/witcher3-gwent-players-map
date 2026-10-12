@@ -1,0 +1,48 @@
+# Gwent Players Map - Korean (kr). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;궨트 마커 표시
+option_gwm_show_defeated;이미 이긴 플레이어 표시
+option_gwm_icon_placement;아이콘 위치
+preset_value_gwm_side;상인 아이콘 옆
+preset_value_gwm_replace;상인 아이콘 대체
+preset_value_gwm_overlap;상인 아이콘 위
+option_gwm_debug;디버그 정보
+map_category_gwent;궨트
+option_gwm_notify;플레이어를 이긴 것으로 표시하면 알림
+gwm_label_gwent_player;궨트 플레이어
+gwm_status_beaten;이미 이김.
+gwm_status_not_beaten;아직 이기지 않음.
+gwm_status_card_obtained;카드 획득함.
+gwm_status_card_not_obtained;카드를 아직 획득하지 않음.
+gwm_notify_beaten;궨트: {role}에게 승리. 지도에 표시했습니다.
+gwm_status_unavailable;더 이상 이용할 수 없음.
+gwm_note_may_leave;특정 퀘스트 이후에는 이용할 수 없을 수 있습니다.
+gwm_note_rescue_first;먼저 구출해야 합니다.
+gwm_role_alchemist;연금술사
+gwm_role_armorer;갑옷 제작자
+gwm_role_barber;이발사
+gwm_role_blacksmith;대장장이
+gwm_role_bloody_baron;피의 남작
+gwm_role_book_merchant;서적상
+gwm_role_brothel_madam;매음굴 마담
+gwm_role_butcher;푸줏간 주인
+gwm_role_crippled_kate;절름발이 케이트
+gwm_role_fergus_graem_armorer;퍼거스 그레임 (갑옷 제작자)
+gwm_role_fishmonger;생선 장수
+gwm_role_gremist;그레미스트
+gwm_role_herbalist;약초상
+gwm_role_innkeeper;여관 주인
+gwm_role_innkeeper_inn_at_the_crossroads;여관 주인, 교차로 여관
+gwm_role_loan_shark;고리대금업자
+gwm_role_merchant;상인
+gwm_role_nilfgaardian_officer;닐프가드 장교
+gwm_role_olivier_kingfisher;올리비에 (물총새 여관)
+gwm_role_quartermaster;병참 장교
+gwm_role_shopkeeper;가게 주인
+gwm_role_stjepan_alchemy_oxenfurt;스테판 (연금술 여관, 옥센푸르트)
+gwm_role_tailor;재단사
+gwm_role_vimme_vivaldi;빔메 비발디
+gwm_role_wine_merchant;와인 상인
+gwm_role_yoana_armorer_s_assistant;요아나 (갑옷 제작자의 조수)
+option_gwm_card_size;카드 크기
+preset_value_gwm_card_small;작게
+preset_value_gwm_card_large;크게 (기존)

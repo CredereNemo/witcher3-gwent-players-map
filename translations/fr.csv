@@ -1,0 +1,48 @@
+# Gwent Players Map - French (fr). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Afficher les marqueurs de Gwynt
+option_gwm_show_defeated;Afficher les joueurs déjà battus
+option_gwm_icon_placement;Position de l'icône
+preset_value_gwm_side;À côté de l'icône du marchand
+preset_value_gwm_replace;Remplacer l'icône du marchand
+preset_value_gwm_overlap;Par-dessus l'icône du marchand
+option_gwm_debug;Infos de débogage
+map_category_gwent;Gwynt
+option_gwm_notify;Notifier quand un joueur est marqué comme battu
+gwm_label_gwent_player;Joueur de Gwynt
+gwm_status_beaten;Déjà battu.
+gwm_status_not_beaten;Pas encore battu.
+gwm_status_card_obtained;Carte obtenue.
+gwm_status_card_not_obtained;Carte pas encore obtenue.
+gwm_notify_beaten;Gwynt : {role} battu. Marqué sur la carte.
+gwm_status_unavailable;N'est plus disponible.
+gwm_note_may_leave;Peut ne plus être disponible après une certaine quête.
+gwm_note_rescue_first;Doit d'abord être secouru.
+gwm_role_alchemist;Alchimiste
+gwm_role_armorer;Armurier
+gwm_role_barber;Barbier
+gwm_role_blacksmith;Forgeron
+gwm_role_bloody_baron;Baron Sanglant
+gwm_role_book_merchant;Libraire
+gwm_role_brothel_madam;Tenancière de bordel
+gwm_role_butcher;Boucher
+gwm_role_crippled_kate;Kate la Boiteuse
+gwm_role_fergus_graem_armorer;Fergus Graem (armurier)
+gwm_role_fishmonger;Poissonnier
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Herboriste
+gwm_role_innkeeper;Aubergiste
+gwm_role_innkeeper_inn_at_the_crossroads;Aubergiste, Auberge du Carrefour
+gwm_role_loan_shark;Usurier
+gwm_role_merchant;Marchand
+gwm_role_nilfgaardian_officer;Officier nilfgaardien
+gwm_role_olivier_kingfisher;Olivier (Martin-Pêcheur)
+gwm_role_quartermaster;Intendant
+gwm_role_shopkeeper;Commerçant
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alchimie, Oxenfurt)
+gwm_role_tailor;Tailleur
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Marchand de vin
+gwm_role_yoana_armorer_s_assistant;Yoana (assistante de l'armurier)
+option_gwm_card_size;Taille des cartes
+preset_value_gwm_card_small;Petite
+preset_value_gwm_card_large;Grande (classique)

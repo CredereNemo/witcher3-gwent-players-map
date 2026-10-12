@@ -17,16 +17,19 @@ have cleared.
 | --- | --- |
 | ![Not beaten](screenshots/not-beaten.jpg) | ![Beaten](screenshots/beaten.jpg) |
 
-| "Gwent" map filter | "Merchants and craftsmen" filter |
-| --- | --- |
-| ![Gwent filter](screenshots/gwent-filter.jpg) | ![Merchants filter](screenshots/merchants-filter.jpg) |
+**"Gwent" map filter**
+
+![Gwent filter](screenshots/gwent-filter.jpg)
 
 ## Features
 
 - A card icon on the world map for each Gwent player: white while you can still win something,
   grey once you have beaten them.
 - A **"Gwent" map filter**: pick it in the filter selector (bottom left of the map) to see only
-  the Gwent players. The cards also show under "All", "Default" and "Merchants and craftsmen".
+  the Gwent players. The cards also show under "All" and "Default".
+- **Two card sizes**: a small card in the style of the game's own icons (default), or the large
+  classic card of the earlier versions.
+- **Every game language** (18), built into the main file.
 - A **"Gwent player" row in the map legend**, with the card icon, the count, and the arrows that
   jump from one player to the next.
 - Hover a card to see who it is and whether they are beaten (for example "Gwent player" /
@@ -79,19 +82,17 @@ files exist in your game, add this line to both:
 
     modGwentPlayersMap.xml;
 
-### Translations (optional)
+### Languages
 
-The mod's texts are in English in every game language. Optional translation files replace them
-for one language: download one from the
-[Releases page](https://github.com/mateusands/witcher3-gwent-players-map/releases/latest)
-(for example `GwentPlayersMap-PTBR.zip`) and extract it into the game folder after the mod. It
-only contains `mods\modGwentPlayersMap\content\<language>.w3strings`. Available: Brazilian
-Portuguese (`GwentPlayersMap-PTBR.zip`) and Russian (`GwentPlayersMap-RU.zip`). Installing or updating the main mod brings back the English text, so install the
-translation again afterwards.
+Since 1.0.7 the mod's texts come in every game language (18) inside the main file; there is no
+separate translation file to install. Brazilian Portuguese and Russian (by
+[CredereNemo](https://github.com/CredereNemo)) are reviewed translations; the other languages are
+machine-assisted drafts, and corrections are very welcome. A language without a text falls back
+to English.
 
 Want to translate the mod? Copy [translations/TEMPLATE.csv](translations/TEMPLATE.csv), translate
 the part after `;` on each line (keep `{role}` as it is) and send it in an issue or pull request;
-the `.w3strings` file is built from it.
+the `.w3strings` file is built from it. Existing translations are in [translations](translations).
 
 ### Updating from an older version
 
@@ -114,10 +115,12 @@ you set them.
   - *Next to the merchant icon* (default): the card sits right next to the shop icon.
   - *Replace the merchant icon*: the shop icon is hidden and only the card is shown.
   - *On top of the merchant icon*: the card is drawn over the shop icon.
+- **Card size**: *Small* (the default for new installs) or *Large (classic)*, the card of
+  1.0.0-1.0.6. Players updating from an earlier version keep the large card until they change it.
 - **Notify when a player is marked as beaten**: shows a notification when a win marks a player
   on the map (off by default). Turn it on to get a message each time.
 - **Debug info**: shows a line each time the world map builds its markers, for example
-  `Gwent Players Map 1.0.6: 47 markers on novigrad, map file loaded`. Useful when something does
+  `Gwent Players Map 1.0.7: 47 markers on novigrad, map file loaded`. Useful when something does
   not show up (see "Troubleshooting").
 
 ## How it works
@@ -153,6 +156,7 @@ reports from players:
 | All Quest Markers Plus | Yes, tested together in game on patch 5.01 (it hooks the same map function, but only edits quest and "?" markers; custom pins work with both) |
 | Quest Levels on Map | Yes |
 | Colored Map Markers | Yes (it changes the minimap, not the world map) |
+| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. Use the combined file from 1.0.7 on (it has both card sizes) |
 | Missing Gwent Cards Tracker And Trader | Yes |
 | Gwent Card Notification | Yes |
 | Witcher's Path | **No**: both replace `panel_worldmap.redswf` |
@@ -171,7 +175,10 @@ reports from players:
   field and a method added to `CR4Game`. No vanilla script file is replaced, so Script Merger is
   not needed.
 - **Map mods:** any mod that replaces `panel_worldmap.redswf` conflicts with this one: only one
-  copy of that file can load. The mod with the higher priority wins (lower number in your mod
+  copy of that file can load. **Merged maps and patches** (World Map Merger, Patch HUB, the Witcher
+  Upgrade Gear Map combined file) carry a copy of this mod's map: after updating to 1.0.7, rebuild
+  or update them. An older merged map keeps working on *Small* (with the old card look), but
+  the *Large* card size needs the 1.0.7 map file. The mod with the higher priority wins (lower number in your mod
   manager or in `mods.settings`; without priorities, the folder name that sorts first wins).
 
 ## Troubleshooting
@@ -218,7 +225,7 @@ Turn on **Debug info** in the options and open the world map:
 - **"Next to the merchant icon"** moves the card a fixed distance in the world, so when the map
   is zoomed far out the two icons can still touch.
 - **Game updates.** The mod ships a modified copy of the game's world map file, built from a
-  specific game patch (1.0.5 and 1.0.6: patch 5.01). A future patch that changes the world map needs a new
+  specific game patch (1.0.5 to 1.0.7: patch 5.01). A future patch that changes the world map needs a new
   version of the mod; until then the mod would show the older map. If the map misbehaves after an
   update, uninstall the mod until there is a fix.
 - **Limited testing.** Tested on the Steam Remastered edition (DX12), on Linux through Proton, in
@@ -234,6 +241,13 @@ The mod only writes a few small facts to your save (wins it recorded itself), wh
 ignores once the mod is removed, so it can be uninstalled at any time.
 
 ## Changelog
+
+- **1.0.7**: every game language (18) built into the main file (Russian by CredereNemo; Ukrainian
+  added; most languages are machine-assisted drafts). New **Card size** option: a smaller card in
+  the style of the game's icons (default for new installs) or the large classic card (kept for
+  players updating). The cards no longer show under "Merchants and craftsmen" (the "Gwent" filter,
+  "All" and "Default" still show them). If you use a merged map or the Witcher Upgrade Gear Map
+  combined file, update it too.
 
 - **1.0.6**: the map texts (marker tooltip, status, notification and player roles) can now be
   translated. The mod stays in English; a Brazilian Portuguese translation is available as an

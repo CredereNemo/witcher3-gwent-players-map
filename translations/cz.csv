@@ -1,0 +1,48 @@
+# Gwent Players Map - Czech (cz). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Zobrazovat značky gwintu
+option_gwm_show_defeated;Zobrazovat již poražené hráče
+option_gwm_icon_placement;Umístění ikony
+preset_value_gwm_side;Vedle ikony obchodníka
+preset_value_gwm_replace;Nahradit ikonu obchodníka
+preset_value_gwm_overlap;Přes ikonu obchodníka
+option_gwm_debug;Ladicí informace
+map_category_gwent;Gwint
+option_gwm_notify;Upozornit, když je hráč označen jako poražený
+gwm_label_gwent_player;Hráč gwintu
+gwm_status_beaten;Již poražen.
+gwm_status_not_beaten;Dosud neporažen.
+gwm_status_card_obtained;Karta získána.
+gwm_status_card_not_obtained;Karta dosud nezískána.
+gwm_notify_beaten;Gwint: {role} poražen. Označeno na mapě.
+gwm_status_unavailable;Již není k dispozici.
+gwm_note_may_leave;Po určitém úkolu už nemusí být k dispozici.
+gwm_note_rescue_first;Nejprve musí být zachráněn.
+gwm_role_alchemist;Alchymista
+gwm_role_armorer;Zbrojíř
+gwm_role_barber;Holič
+gwm_role_blacksmith;Kovář
+gwm_role_bloody_baron;Krvavý baron
+gwm_role_book_merchant;Knihkupec
+gwm_role_brothel_madam;Majitelka nevěstince
+gwm_role_butcher;Řezník
+gwm_role_crippled_kate;Kulhavá Kate
+gwm_role_fergus_graem_armorer;Fergus Graem (zbrojíř)
+gwm_role_fishmonger;Obchodník s rybami
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Bylinkář
+gwm_role_innkeeper;Hostinský
+gwm_role_innkeeper_inn_at_the_crossroads;Hostinský, Hostinec Na rozcestí
+gwm_role_loan_shark;Lichvář
+gwm_role_merchant;Obchodník
+gwm_role_nilfgaardian_officer;Nilfgaardský důstojník
+gwm_role_olivier_kingfisher;Olivier (Ledňáček)
+gwm_role_quartermaster;Proviantník
+gwm_role_shopkeeper;Kramář
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alchymie, Oxenfurt)
+gwm_role_tailor;Krejčí
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Obchodník s vínem
+gwm_role_yoana_armorer_s_assistant;Yoana (pomocnice zbrojíře)
+option_gwm_card_size;Velikost karty
+preset_value_gwm_card_small;Malá
+preset_value_gwm_card_large;Velká (klasická)

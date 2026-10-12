@@ -1,6 +1,6 @@
-# Gwent Players Map 1.0.6 - texts to translate. Copy to <lang>.csv (br, de, fr, ru, ...)
+# Gwent Players Map 1.0.7 - texts to translate. Copy to <lang>.csv (br, de, fr, ru, ...)
 # and translate the part after the semicolon. Keep {role} as it is. Missing lines stay in English.
-panel_gwentplayersmap;Gwent Players Map 1.0.6
+panel_gwentplayersmap;Gwent Players Map 1.0.7
 option_gwm_show_pins;Show Gwent markers
 option_gwm_show_defeated;Show players already beaten
 option_gwm_icon_placement;Icon placement
@@ -8,6 +8,9 @@ preset_value_gwm_side;Next to the merchant icon
 preset_value_gwm_replace;Replace the merchant icon
 preset_value_gwm_overlap;On top of the merchant icon
 option_gwm_debug;Debug info
+option_gwm_card_size;Card size
+preset_value_gwm_card_small;Small
+preset_value_gwm_card_large;Large (classic)
 map_category_gwent;Gwent
 option_gwm_notify;Notify when a player is marked as beaten
 gwm_label_gwent_player;Gwent player

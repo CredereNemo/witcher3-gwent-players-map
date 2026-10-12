@@ -20,6 +20,16 @@
 					</Option>
 				</OptionsArray>
 			</Var>
+			<Var id="GwmCardSize" displayName="gwm_card_size" displayType="OPTIONS">
+				<OptionsArray>
+					<Option id="0" displayName="gwm_card_small">
+						<Entry varId="GwmCardSize" value="0"/>
+					</Option>
+					<Option id="1" displayName="gwm_card_large">
+						<Entry varId="GwmCardSize" value="1"/>
+					</Option>
+				</OptionsArray>
+			</Var>
 			<Var id="GwmNotify" displayName="gwm_notify" displayType="TOGGLE"/>
 			<Var id="GwmDebug" displayName="gwm_debug" displayType="TOGGLE"/>
 		</VisibleVars>

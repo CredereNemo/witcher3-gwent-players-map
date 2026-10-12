@@ -1,0 +1,48 @@
+# Gwent Players Map - Polish (pl). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Pokazuj znaczniki gwinta
+option_gwm_show_defeated;Pokazuj już pokonanych graczy
+option_gwm_icon_placement;Położenie ikony
+preset_value_gwm_side;Obok ikony kupca
+preset_value_gwm_replace;Zastąp ikonę kupca
+preset_value_gwm_overlap;Na ikonie kupca
+option_gwm_debug;Informacje diagnostyczne
+map_category_gwent;Gwint
+option_gwm_notify;Powiadamiaj, gdy gracz zostanie oznaczony jako pokonany
+gwm_label_gwent_player;Gracz w gwinta
+gwm_status_beaten;Już pokonany.
+gwm_status_not_beaten;Jeszcze niepokonany.
+gwm_status_card_obtained;Karta zdobyta.
+gwm_status_card_not_obtained;Karta jeszcze niezdobyta.
+gwm_notify_beaten;Gwint: {role} pokonany. Oznaczono na mapie.
+gwm_status_unavailable;Już niedostępny.
+gwm_note_may_leave;Może stać się niedostępny po pewnym zadaniu.
+gwm_note_rescue_first;Najpierw trzeba go uratować.
+gwm_role_alchemist;Alchemik
+gwm_role_armorer;Płatnerz
+gwm_role_barber;Cyrulik
+gwm_role_blacksmith;Kowal
+gwm_role_bloody_baron;Krwawy Baron
+gwm_role_book_merchant;Księgarz
+gwm_role_brothel_madam;Burdelmama
+gwm_role_butcher;Rzeźnik
+gwm_role_crippled_kate;Kulawa Kaśka
+gwm_role_fergus_graem_armorer;Fergus Graem (płatnerz)
+gwm_role_fishmonger;Handlarz ryb
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Zielarz
+gwm_role_innkeeper;Karczmarz
+gwm_role_innkeeper_inn_at_the_crossroads;Karczmarz, Karczma na Rozstajach
+gwm_role_loan_shark;Lichwiarz
+gwm_role_merchant;Kupiec
+gwm_role_nilfgaardian_officer;Oficer nilfgaardzki
+gwm_role_olivier_kingfisher;Olivier (Zimorodek)
+gwm_role_quartermaster;Kwatermistrz
+gwm_role_shopkeeper;Sklepikarz
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alchemia, Oxenfurt)
+gwm_role_tailor;Krawiec
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Handlarz winem
+gwm_role_yoana_armorer_s_assistant;Yoana (pomocnica płatnerza)
+option_gwm_card_size;Rozmiar karty
+preset_value_gwm_card_small;Mała
+preset_value_gwm_card_large;Duża (klasyczna)

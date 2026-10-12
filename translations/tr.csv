@@ -1,0 +1,48 @@
+# Gwent Players Map - Turkish (tr). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Gwent işaretlerini göster
+option_gwm_show_defeated;Zaten yenilen oyuncuları göster
+option_gwm_icon_placement;Simge konumu
+preset_value_gwm_side;Tüccar simgesinin yanında
+preset_value_gwm_replace;Tüccar simgesinin yerine
+preset_value_gwm_overlap;Tüccar simgesinin üstünde
+option_gwm_debug;Hata ayıklama bilgisi
+map_category_gwent;Gwent
+option_gwm_notify;Bir oyuncu yenildi olarak işaretlenince bildir
+gwm_label_gwent_player;Gwent oyuncusu
+gwm_status_beaten;Zaten yenildi.
+gwm_status_not_beaten;Henüz yenilmedi.
+gwm_status_card_obtained;Kart alındı.
+gwm_status_card_not_obtained;Kart henüz alınmadı.
+gwm_notify_beaten;Gwent: {role} yenildi. Haritada işaretlendi.
+gwm_status_unavailable;Artık mevcut değil.
+gwm_note_may_leave;Belirli bir görevden sonra artık mevcut olmayabilir.
+gwm_note_rescue_first;Önce kurtarılması gerekiyor.
+gwm_role_alchemist;Simyacı
+gwm_role_armorer;Zırhçı
+gwm_role_barber;Berber
+gwm_role_blacksmith;Demirci
+gwm_role_bloody_baron;Kanlı Baron
+gwm_role_book_merchant;Kitapçı
+gwm_role_brothel_madam;Genelev patroniçesi
+gwm_role_butcher;Kasap
+gwm_role_crippled_kate;Topal Kate
+gwm_role_fergus_graem_armorer;Fergus Graem (zırhçı)
+gwm_role_fishmonger;Balıkçı
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Şifalı ot satıcısı
+gwm_role_innkeeper;Hancı
+gwm_role_innkeeper_inn_at_the_crossroads;Hancı, Kavşak Hanı
+gwm_role_loan_shark;Tefeci
+gwm_role_merchant;Tüccar
+gwm_role_nilfgaardian_officer;Nilfgaard subayı
+gwm_role_olivier_kingfisher;Olivier (Yalıçapkını)
+gwm_role_quartermaster;Levazım subayı
+gwm_role_shopkeeper;Dükkân sahibi
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Simya, Oxenfurt)
+gwm_role_tailor;Terzi
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Şarap tüccarı
+gwm_role_yoana_armorer_s_assistant;Yoana (zırhçı yardımcısı)
+option_gwm_card_size;Kart boyutu
+preset_value_gwm_card_small;Küçük
+preset_value_gwm_card_large;Büyük (klasik)

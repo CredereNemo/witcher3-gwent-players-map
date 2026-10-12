@@ -45,3 +45,6 @@ gwm_role_tailor;Портной
 gwm_role_vimme_vivaldi;Вимме Вивальди
 gwm_role_wine_merchant;Торговец вином
 gwm_role_yoana_armorer_s_assistant;Иоанна (помощница бронника)
+option_gwm_card_size;Размер карты
+preset_value_gwm_card_small;Маленький
+preset_value_gwm_card_large;Большой (классический)

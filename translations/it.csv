@@ -1,0 +1,48 @@
+# Gwent Players Map - Italian (it). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Mostra i segnalini di Gwent
+option_gwm_show_defeated;Mostra i giocatori già sconfitti
+option_gwm_icon_placement;Posizione dell'icona
+preset_value_gwm_side;Accanto all'icona del mercante
+preset_value_gwm_replace;Sostituisci l'icona del mercante
+preset_value_gwm_overlap;Sopra l'icona del mercante
+option_gwm_debug;Informazioni di debug
+map_category_gwent;Gwent
+option_gwm_notify;Notifica quando un giocatore viene segnato come sconfitto
+gwm_label_gwent_player;Giocatore di Gwent
+gwm_status_beaten;Già sconfitto.
+gwm_status_not_beaten;Non ancora sconfitto.
+gwm_status_card_obtained;Carta ottenuta.
+gwm_status_card_not_obtained;Carta non ancora ottenuta.
+gwm_notify_beaten;Gwent: {role} sconfitto. Segnato sulla mappa.
+gwm_status_unavailable;Non più disponibile.
+gwm_note_may_leave;Potrebbe non essere più disponibile dopo una certa missione.
+gwm_note_rescue_first;Deve prima essere salvato.
+gwm_role_alchemist;Alchimista
+gwm_role_armorer;Armaiolo
+gwm_role_barber;Barbiere
+gwm_role_blacksmith;Fabbro
+gwm_role_bloody_baron;Barone Sanguinario
+gwm_role_book_merchant;Libraio
+gwm_role_brothel_madam;Tenutaria del bordello
+gwm_role_butcher;Macellaio
+gwm_role_crippled_kate;Kate la Zoppa
+gwm_role_fergus_graem_armorer;Fergus Graem (armaiolo)
+gwm_role_fishmonger;Pescivendolo
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Erborista
+gwm_role_innkeeper;Locandiere
+gwm_role_innkeeper_inn_at_the_crossroads;Locandiere, Locanda al Crocevia
+gwm_role_loan_shark;Usuraio
+gwm_role_merchant;Mercante
+gwm_role_nilfgaardian_officer;Ufficiale nilfgaardiano
+gwm_role_olivier_kingfisher;Olivier (Martin Pescatore)
+gwm_role_quartermaster;Quartiermastro
+gwm_role_shopkeeper;Bottegaio
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alchimia, Oxenfurt)
+gwm_role_tailor;Sarto
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Mercante di vino
+gwm_role_yoana_armorer_s_assistant;Yoana (assistente dell'armaiolo)
+option_gwm_card_size;Dimensione della carta
+preset_value_gwm_card_small;Piccola
+preset_value_gwm_card_large;Grande (classica)

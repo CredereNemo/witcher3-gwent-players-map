@@ -1,0 +1,48 @@
+# Gwent Players Map - Ukrainian (ua). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Показувати мітки гвинта
+option_gwm_show_defeated;Показувати вже переможених гравців
+option_gwm_icon_placement;Розташування значка
+preset_value_gwm_side;Поруч зі значком торговця
+preset_value_gwm_replace;Замінити значок торговця
+preset_value_gwm_overlap;Поверх значка торговця
+option_gwm_debug;Налагоджувальна інформація
+map_category_gwent;Гвинт
+option_gwm_notify;Сповіщати, коли гравця позначено як переможеного
+gwm_label_gwent_player;Гравець у гвинт
+gwm_status_beaten;Уже переможений.
+gwm_status_not_beaten;Ще не переможений.
+gwm_status_card_obtained;Карту отримано.
+gwm_status_card_not_obtained;Карту ще не отримано.
+gwm_notify_beaten;Гвинт: {role} переможений. Позначено на мапі.
+gwm_status_unavailable;Більше не доступний.
+gwm_note_may_leave;Може стати недоступним після певного завдання.
+gwm_note_rescue_first;Спочатку треба врятувати.
+gwm_role_alchemist;Алхімік
+gwm_role_armorer;Зброяр
+gwm_role_barber;Цирульник
+gwm_role_blacksmith;Коваль
+gwm_role_bloody_baron;Кривавий Барон
+gwm_role_book_merchant;Книготорговець
+gwm_role_brothel_madam;Власниця борделю
+gwm_role_butcher;М'ясник
+gwm_role_crippled_kate;Кульгава Кейт
+gwm_role_fergus_graem_armorer;Фергус Грем (зброяр)
+gwm_role_fishmonger;Торговець рибою
+gwm_role_gremist;Гремист
+gwm_role_herbalist;Травник
+gwm_role_innkeeper;Корчмар
+gwm_role_innkeeper_inn_at_the_crossroads;Корчмар, корчма «На роздоріжжі»
+gwm_role_loan_shark;Лихвар
+gwm_role_merchant;Торговець
+gwm_role_nilfgaardian_officer;Нільфгаардський офіцер
+gwm_role_olivier_kingfisher;Олів'є («Зимородок»)
+gwm_role_quartermaster;Інтендант
+gwm_role_shopkeeper;Крамар
+gwm_role_stjepan_alchemy_oxenfurt;Степан (корчма «Алхімія», Оксенфурт)
+gwm_role_tailor;Кравець
+gwm_role_vimme_vivaldi;Вімме Вівальді
+gwm_role_wine_merchant;Торговець вином
+gwm_role_yoana_armorer_s_assistant;Йоана (помічниця зброяра)
+option_gwm_card_size;Розмір карти
+preset_value_gwm_card_small;Малий
+preset_value_gwm_card_large;Великий (класичний)

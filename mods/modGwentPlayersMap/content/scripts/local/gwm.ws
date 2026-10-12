@@ -16,7 +16,7 @@
 
 function GwmVersion() : string
 {
-	return "1.0.6";
+	return "1.0.7";
 }
 
 struct GwmPin
@@ -288,6 +288,20 @@ function GwmInitConfig()
 	var config : CInGameConfigWrapper = theGame.GetInGameConfigWrapper();
 	var changed : bool;
 
+	// Card size (1.0.7): new installs get the small card; players updating from an earlier version
+	// (their settings already exist) keep the large card they know. Either can be changed later.
+	if ( config.GetVarValue( 'GwentPlayersMap', 'GwmCardSize' ) == "" )
+	{
+		if ( config.GetVarValue( 'GwentPlayersMap', 'GwmShowPins' ) == "" )
+		{
+			config.SetVarValue( 'GwentPlayersMap', 'GwmCardSize', "0" );
+		}
+		else
+		{
+			config.SetVarValue( 'GwentPlayersMap', 'GwmCardSize', "1" );
+		}
+		changed = true;
+	}
 	if ( config.GetVarValue( 'GwentPlayersMap', 'GwmShowPins' ) == "" )
 	{
 		config.SetVarValue( 'GwentPlayersMap', 'GwmShowPins', "true" );
@@ -426,6 +440,7 @@ function GwmSideOffset() : float
 	var pinType       : string;
 	var d, bestDist   : float;
 	var showDebug     : bool;
+	var largeCards    : bool;
 	var added         : int;
 
 	wrappedMethod( flashArray );
@@ -454,6 +469,7 @@ function GwmSideOffset() : float
 	}
 
 	placement = GwmIconPlacement();
+	largeCards = theGame.GetInGameConfigWrapper().GetVarValue( 'GwentPlayersMap', 'GwmCardSize' ) == "1";
 	showDefeated = GwmConfigBool( 'GwmShowDefeated', true );
 
 	// Shop icons the vanilla map is showing, to line the cards up with (or hide them).
@@ -488,10 +504,12 @@ function GwmSideOffset() : float
 		if ( defeated || unavailable )
 		{
 			pinType = data.iconDefeated;
+			if ( largeCards ) { pinType = "GwentPlayerLargeDisabled"; }
 		}
 		else
 		{
 			pinType = data.iconNormal;
+			if ( largeCards ) { pinType = "GwentPlayerLarge"; }
 		}
 
 		pos = Vector( data.pins[ i ].x, data.pins[ i ].y, 0 );

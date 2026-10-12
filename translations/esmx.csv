@@ -1,0 +1,48 @@
+# Gwent Players Map - Spanish (Latin America) (esmx). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Mostrar marcadores de Gwent
+option_gwm_show_defeated;Mostrar jugadores ya derrotados
+option_gwm_icon_placement;Posición del icono
+preset_value_gwm_side;Junto al icono del comerciante
+preset_value_gwm_replace;Sustituir el icono del comerciante
+preset_value_gwm_overlap;Encima del icono del comerciante
+option_gwm_debug;Información de depuración
+map_category_gwent;Gwent
+option_gwm_notify;Avisar cuando un jugador se marque como derrotado
+gwm_label_gwent_player;Jugador de Gwent
+gwm_status_beaten;Ya derrotado.
+gwm_status_not_beaten;Aún no derrotado.
+gwm_status_card_obtained;Carta obtenida.
+gwm_status_card_not_obtained;Carta aún no obtenida.
+gwm_notify_beaten;Gwent: {role} derrotado. Marcado en el mapa.
+gwm_status_unavailable;Ya no está disponible.
+gwm_note_may_leave;Puede dejar de estar disponible tras cierta misión.
+gwm_note_rescue_first;Primero hay que rescatarlo.
+gwm_role_alchemist;Alquimista
+gwm_role_armorer;Armero
+gwm_role_barber;Barbero
+gwm_role_blacksmith;Herrero
+gwm_role_bloody_baron;Barón Sanguinario
+gwm_role_book_merchant;Librero
+gwm_role_brothel_madam;Madama del burdel
+gwm_role_butcher;Carnicero
+gwm_role_crippled_kate;Kate la Coja
+gwm_role_fergus_graem_armorer;Fergus Graem (armero)
+gwm_role_fishmonger;Pescadero
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Herbolario
+gwm_role_innkeeper;Posadero
+gwm_role_innkeeper_inn_at_the_crossroads;Posadero, Posada del Cruce
+gwm_role_loan_shark;Usurero
+gwm_role_merchant;Comerciante
+gwm_role_nilfgaardian_officer;Oficial nilfgaardiano
+gwm_role_olivier_kingfisher;Olivier (Martín Pescador)
+gwm_role_quartermaster;Intendente
+gwm_role_shopkeeper;Tendero
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alquimia, Oxenfurt)
+gwm_role_tailor;Sastre
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Comerciante de vino
+gwm_role_yoana_armorer_s_assistant;Yoana (ayudante del armero)
+option_gwm_card_size;Tamaño de la carta
+preset_value_gwm_card_small;Pequeña
+preset_value_gwm_card_large;Grande (clásica)

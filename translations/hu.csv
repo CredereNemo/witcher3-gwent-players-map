@@ -1,0 +1,48 @@
+# Gwent Players Map - Hungarian (hu). Machine-assisted draft; native review welcome.
+option_gwm_show_pins;Gwint-jelölők megjelenítése
+option_gwm_show_defeated;Már legyőzött játékosok megjelenítése
+option_gwm_icon_placement;Ikon helye
+preset_value_gwm_side;A kereskedő ikonja mellett
+preset_value_gwm_replace;A kereskedő ikonjának cseréje
+preset_value_gwm_overlap;A kereskedő ikonja fölött
+option_gwm_debug;Hibakeresési infó
+map_category_gwent;Gwint
+option_gwm_notify;Értesítés, ha egy játékos legyőzöttként van megjelölve
+gwm_label_gwent_player;Gwint-játékos
+gwm_status_beaten;Már legyőzve.
+gwm_status_not_beaten;Még nincs legyőzve.
+gwm_status_card_obtained;Kártya megszerezve.
+gwm_status_card_not_obtained;Kártya még nincs megszerezve.
+gwm_notify_beaten;Gwint: {role} legyőzve. Megjelölve a térképen.
+gwm_status_unavailable;Már nem elérhető.
+gwm_note_may_leave;Egy bizonyos küldetés után már nem lehet elérhető.
+gwm_note_rescue_first;Előbb meg kell menteni.
+gwm_role_alchemist;Alkimista
+gwm_role_armorer;Páncélkovács
+gwm_role_barber;Borbély
+gwm_role_blacksmith;Kovács
+gwm_role_bloody_baron;Véres Báró
+gwm_role_book_merchant;Könyvárus
+gwm_role_brothel_madam;Bordélyház-tulajdonosnő
+gwm_role_butcher;Mészáros
+gwm_role_crippled_kate;Sánta Kate
+gwm_role_fergus_graem_armorer;Fergus Graem (páncélkovács)
+gwm_role_fishmonger;Halárus
+gwm_role_gremist;Gremist
+gwm_role_herbalist;Füvesember
+gwm_role_innkeeper;Fogadós
+gwm_role_innkeeper_inn_at_the_crossroads;Fogadós, Útkereszteződés fogadó
+gwm_role_loan_shark;Uzsorás
+gwm_role_merchant;Kereskedő
+gwm_role_nilfgaardian_officer;Nilfgaardi tiszt
+gwm_role_olivier_kingfisher;Olivier (Jégmadár)
+gwm_role_quartermaster;Szállásmester
+gwm_role_shopkeeper;Boltos
+gwm_role_stjepan_alchemy_oxenfurt;Stjepan (Alkímia, Oxenfurt)
+gwm_role_tailor;Szabó
+gwm_role_vimme_vivaldi;Vimme Vivaldi
+gwm_role_wine_merchant;Borkereskedő
+gwm_role_yoana_armorer_s_assistant;Yoana (a páncélkovács segédje)
+option_gwm_card_size;Kártyaméret
+preset_value_gwm_card_small;Kicsi
+preset_value_gwm_card_large;Nagy (klasszikus)
