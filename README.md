@@ -90,6 +90,10 @@ separate translation file to install. Brazilian Portuguese and Russian (by
 machine-assisted drafts, and corrections are very welcome. A language without a text falls back
 to English.
 
+Thank you to everyone who has translated the mod: CredereNemo (Russian, included), LootGoBrrr
+(Chinese) and MonsieurFrance (French). Their Chinese and French translations are on Nexus; if you
+prefer them to the built-in drafts, install them after the main file.
+
 Want to translate the mod? Copy [translations/TEMPLATE.csv](translations/TEMPLATE.csv), translate
 the part after `;` on each line (keep `{role}` as it is) and send it in an issue or pull request;
 the `.w3strings` file is built from it. Existing translations are in [translations](translations).
@@ -282,7 +286,8 @@ the map icon and the map filter were written by the AI, and I tested the mod in 
 - Witcher's Path, used as a reference for adding a filter to the world map.
 - [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler), used to edit
   the map's ActionScript.
-- Russian translation: [CredereNemo](https://github.com/CredereNemo).
+- Translations: [CredereNemo](https://github.com/CredereNemo) (Russian), LootGoBrrr (Chinese) and
+  MonsieurFrance (French).
 - The Witcher 3 and all its assets belong to CD PROJEKT RED.
 
 ## Contributing
