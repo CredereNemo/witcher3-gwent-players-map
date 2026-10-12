@@ -11,15 +11,14 @@ have cleared.
 **Download:** [Nexus Mods](https://www.nexusmods.com/witcher3/mods/13755) or
 [GitHub Releases](https://github.com/mateusands/witcher3-gwent-players-map/releases/latest).
 
-![Novigrad](screenshots/novigrad.jpg)
+![Novigrad with the Gwent filter](screenshots/novigrad-1.0.7.jpg)
+
+*Novigrad with the "Gwent" map filter: white cards still have a card to win, grey cards are
+already beaten. The legend row counts the players and jumps between them.*
 
 | Not beaten yet | Already beaten |
 | --- | --- |
-| ![Not beaten](screenshots/not-beaten.jpg) | ![Beaten](screenshots/beaten.jpg) |
-
-**"Gwent" map filter**
-
-![Gwent filter](screenshots/gwent-filter.jpg)
+| ![Not beaten](screenshots/not-beaten-1.0.7.jpg) | ![Beaten](screenshots/beaten-1.0.7.jpg) |
 
 ## Features
 
@@ -111,7 +110,7 @@ you set them.
 
 **Options > Mods > Gwent Players Map** (the title shows the installed version)
 
-![Options](screenshots/options.jpg)
+![Options](screenshots/options-1.0.7.jpg)
 
 - **Show Gwent markers**: turns all the cards on the map on or off.
 - **Show players already beaten**: turn it off to see only the players you still have to beat.
