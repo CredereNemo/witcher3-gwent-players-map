@@ -86,7 +86,7 @@ for one language: download one from the
 [Releases page](https://github.com/mateusands/witcher3-gwent-players-map/releases/latest)
 (for example `GwentPlayersMap-PTBR.zip`) and extract it into the game folder after the mod. It
 only contains `mods\modGwentPlayersMap\content\<language>.w3strings`. Available: Brazilian
-Portuguese. Installing or updating the main mod brings back the English text, so install the
+Portuguese (`GwentPlayersMap-PTBR.zip`) and Russian (`GwentPlayersMap-RU.zip`). Installing or updating the main mod brings back the English text, so install the
 translation again afterwards.
 
 Want to translate the mod? Copy [translations/TEMPLATE.csv](translations/TEMPLATE.csv), translate
@@ -268,6 +268,7 @@ the map icon and the map filter were written by the AI, and I tested the mod in 
 - Witcher's Path, used as a reference for adding a filter to the world map.
 - [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler), used to edit
   the map's ActionScript.
+- Russian translation: [CredereNemo](https://github.com/CredereNemo).
 - The Witcher 3 and all its assets belong to CD PROJEKT RED.
 
 ## Contributing
