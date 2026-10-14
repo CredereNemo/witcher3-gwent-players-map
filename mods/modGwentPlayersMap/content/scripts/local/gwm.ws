@@ -46,6 +46,7 @@ class GwmData
 	// Gwent cards each shop sells: storeNames[ k ] sells storeCards[ k ].
 	private var storeNames : array< string >;
 	private var storeCards : array< name >;
+	private var storeCardNames : array< name >;	// Gwent card of each item (cached, see CacheStoreCardNames)
 
 	// Frame labels added to the world map pin sprite (modified panel_worldmap.redswf in content/blob0.bundle).
 	public var iconNormal   : string;	default iconNormal   = "GwentPlayer";
@@ -63,6 +64,7 @@ class GwmData
 		pins.Clear();
 		storeNames.Clear();
 		storeCards.Clear();
+		storeCardNames.Clear();
 		GwmLoadData( this );
 	}
 
@@ -145,8 +147,38 @@ class GwmData
 		}
 	}
 
-	// The pin's shop still has a Gwent card the player does not own. Read from the inventory each
-	// time, so cards bought before the mod was installed count too.
+	// Some cards have one item per copy (gwint_card_poor_infantry, ..2, ..3): the Gwent card they stand
+	// for is looked up once per session (GetCardNameFromItemName walks every card definition).
+	private function CacheStoreCardNames()
+	{
+		var gwint : CR4GwintManager;
+		var k : int;
+
+		if ( storeCardNames.Size() == storeCards.Size() )
+		{
+			return;
+		}
+		gwint = theGame.GetGwintManager();
+		storeCardNames.Clear();
+		for ( k = 0; k < storeCards.Size(); k += 1 )
+		{
+			storeCardNames.PushBack( gwint.GetCardNameFromItemName( storeCards[ k ] ) );
+		}
+	}
+
+	// The player has that card: the item itself, or any copy of the same card in the Gwent collection.
+	private function StoreCardOwned( k : int ) : bool
+	{
+		if ( thePlayer.inv.HasItem( storeCards[ k ] ) )
+		{
+			return true;
+		}
+		CacheStoreCardNames();
+		return IsNameValid( storeCardNames[ k ] ) && theGame.GetGwintManager().HasCardInCollection( storeCardNames[ k ] );
+	}
+
+	// The pin's shop still has a Gwent card the player does not have. Checked each time, so cards
+	// obtained before the mod was installed count too.
 	public function SellsCardsYouLack( idx : int ) : bool
 	{
 		var k : int;
@@ -161,7 +193,7 @@ class GwmData
 		}
 		for ( k = 0; k < storeNames.Size(); k += 1 )
 		{
-			if ( storeNames[ k ] == pins[ idx ].store && !thePlayer.inv.HasItem( storeCards[ k ] ) )
+			if ( storeNames[ k ] == pins[ idx ].store && !StoreCardOwned( k ) )
 			{
 				return true;
 			}
@@ -177,7 +209,7 @@ class GwmData
 
 		for ( k = 0; k < storeNames.Size(); k += 1 )
 		{
-			if ( storeNames[ k ] == pins[ idx ].store && !thePlayer.inv.HasItem( storeCards[ k ] ) )
+			if ( storeNames[ k ] == pins[ idx ].store && !StoreCardOwned( k ) )
 			{
 				if ( text != "" )
 				{
