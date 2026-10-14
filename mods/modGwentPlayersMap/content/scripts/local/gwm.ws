@@ -46,7 +46,8 @@ class GwmData
 	// Gwent cards each shop sells: storeNames[ k ] sells storeCards[ k ].
 	private var storeNames : array< string >;
 	private var storeCards : array< name >;
-	private var storeBaseItems : array< name >;	// item without its copy number (..poor_infantry3 -> ..poor_infantry)
+	private var storeExactCards : array< name >;	// collection name: item without gwint_card_ (poor_infantry3)
+	private var storeBaseCards  : array< name >;	// ...and without the copy number (poor_infantry)
 	private var storeCardNames : array< name >;	// Gwent card of each item (cached, see CacheStoreCardNames)
 
 	// Frame labels added to the world map pin sprite (modified panel_worldmap.redswf in content/blob0.bundle).
@@ -65,7 +66,8 @@ class GwmData
 		pins.Clear();
 		storeNames.Clear();
 		storeCards.Clear();
-		storeBaseItems.Clear();
+		storeExactCards.Clear();
+		storeBaseCards.Clear();
 		storeCardNames.Clear();
 		GwmLoadData( this );
 	}
@@ -129,11 +131,12 @@ class GwmData
 		}
 	}
 
-	public function AddStoreCard( store : string, card : name, baseItem : name )
+	public function AddStoreCard( store : string, card : name, exactCard : name, baseCard : name )
 	{
 		storeNames.PushBack( store );
 		storeCards.PushBack( card );
-		storeBaseItems.PushBack( baseItem );
+		storeExactCards.PushBack( exactCard );
+		storeBaseCards.PushBack( baseCard );
 	}
 
 	public function SetStore( id : int, store : string, goneFact : string )
@@ -150,12 +153,11 @@ class GwmData
 		}
 	}
 
-	// Some cards have one item per copy (gwint_card_poor_infantry, ..2, ..3): the Gwent card they stand
-	// for is looked up once per session (GetCardNameFromItemName walks every card definition).
+	// The Gwent card an item stands for, from the card definitions; looked up once per session
+	// (GetCardNameFromItemName walks every card definition).
 	private function CacheStoreCardNames()
 	{
 		var gwint : CR4GwintManager;
-		var card : name;
 		var k : int;
 
 		if ( storeCardNames.Size() == storeCards.Size() )
@@ -166,25 +168,27 @@ class GwmData
 		storeCardNames.Clear();
 		for ( k = 0; k < storeCards.Size(); k += 1 )
 		{
-			card = gwint.GetCardNameFromItemName( storeCards[ k ] );
-			// The card definitions name one item per card: a copy item (..poor_infantry3) has none.
-			if ( !IsNameValid( card ) && storeBaseItems[ k ] != storeCards[ k ] )
-			{
-				card = gwint.GetCardNameFromItemName( storeBaseItems[ k ] );
-			}
-			storeCardNames.PushBack( card );
+			storeCardNames.PushBack( gwint.GetCardNameFromItemName( storeCards[ k ] ) );
 		}
 	}
 
-	// The player has that card: the item itself, or any copy of the same card in the Gwent collection.
+	// The player has that card: the item itself, or the card in the Gwent collection (bought cards
+	// live only there). Copy items such as gwint_card_poor_infantry3 have no card definition, and the
+	// collection names the card poor_infantry, so the names derived from the item are checked too.
 	private function StoreCardOwned( k : int ) : bool
 	{
+		var gwint : CR4GwintManager = theGame.GetGwintManager();
+
 		if ( thePlayer.inv.HasItem( storeCards[ k ] ) )
 		{
 			return true;
 		}
 		CacheStoreCardNames();
-		return IsNameValid( storeCardNames[ k ] ) && theGame.GetGwintManager().HasCardInCollection( storeCardNames[ k ] );
+		if ( IsNameValid( storeCardNames[ k ] ) && gwint.HasCardInCollection( storeCardNames[ k ] ) )
+		{
+			return true;
+		}
+		return gwint.HasCardInCollection( storeExactCards[ k ] ) || gwint.HasCardInCollection( storeBaseCards[ k ] );
 	}
 
 	// The pin's shop still has a Gwent card the player does not have. Checked each time, so cards
@@ -225,7 +229,7 @@ class GwmData
 				{
 					text += ", ";
 				}
-				text += NameToString( storeCards[ k ] ) + " (card: " + NameToString( storeCardNames[ k ] ) + ")";
+				text += NameToString( storeCards[ k ] );
 			}
 		}
 		return text;
