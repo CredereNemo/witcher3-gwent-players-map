@@ -46,6 +46,7 @@ class GwmData
 	// Gwent cards each shop sells: storeNames[ k ] sells storeCards[ k ].
 	private var storeNames : array< string >;
 	private var storeCards : array< name >;
+	private var storeBaseItems : array< name >;	// item without its copy number (..poor_infantry3 -> ..poor_infantry)
 	private var storeCardNames : array< name >;	// Gwent card of each item (cached, see CacheStoreCardNames)
 
 	// Frame labels added to the world map pin sprite (modified panel_worldmap.redswf in content/blob0.bundle).
@@ -64,6 +65,7 @@ class GwmData
 		pins.Clear();
 		storeNames.Clear();
 		storeCards.Clear();
+		storeBaseItems.Clear();
 		storeCardNames.Clear();
 		GwmLoadData( this );
 	}
@@ -127,10 +129,11 @@ class GwmData
 		}
 	}
 
-	public function AddStoreCard( store : string, card : name )
+	public function AddStoreCard( store : string, card : name, baseItem : name )
 	{
 		storeNames.PushBack( store );
 		storeCards.PushBack( card );
+		storeBaseItems.PushBack( baseItem );
 	}
 
 	public function SetStore( id : int, store : string, goneFact : string )
@@ -165,9 +168,9 @@ class GwmData
 		{
 			card = gwint.GetCardNameFromItemName( storeCards[ k ] );
 			// The card definitions name one item per card: a copy item (..poor_infantry3) has none.
-			if ( !IsNameValid( card ) )
+			if ( !IsNameValid( card ) && storeBaseItems[ k ] != storeCards[ k ] )
 			{
-				card = gwint.GetCardNameFromItemName( GwmBaseItemName( storeCards[ k ] ) );
+				card = gwint.GetCardNameFromItemName( storeBaseItems[ k ] );
 			}
 			storeCardNames.PushBack( card );
 		}
@@ -752,18 +755,6 @@ function GwmNoteText( pin : GwmPin ) : string
 		return " " + GwmLoc( pin.noteKey, "Must be rescued first." );
 	}
 	return "";
-}
-
-// Item name without its trailing copy number: gwint_card_poor_infantry3 -> gwint_card_poor_infantry.
-function GwmBaseItemName( item : name ) : name
-{
-	var text : string = NameToString( item );
-
-	while ( StrLen( text ) > 0 && StrFindFirst( "0123456789", StrRight( text, 1 ) ) >= 0 )
-	{
-		text = StrLeft( text, StrLen( text ) - 1 );
-	}
-	return StringToName( text );
 }
 
 // "Show who sells Gwent cards" option: one more line while the shop has a card the player lacks.
