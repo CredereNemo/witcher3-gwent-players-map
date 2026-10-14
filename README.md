@@ -114,10 +114,6 @@ you set them.
 
 - **Show Gwent markers**: turns all the cards on the map on or off.
 - **Show players already beaten**: turn it off to see only the players you still have to beat.
-- **Icon placement**:
-  - *Next to the merchant icon* (default): the card sits right next to the shop icon.
-  - *Replace the merchant icon*: the shop icon is hidden and only the card is shown.
-  - *On top of the merchant icon*: the card is drawn over the shop icon.
 - **Card size**: *Small* (the default for new installs) or *Large (classic)*, the card of
   1.0.0-1.0.6. Players updating from an earlier version keep the large card until they change it.
 - **Notify when a player is marked as beaten**: shows a notification when a win marks a player
@@ -125,6 +121,13 @@ you set them.
 - **Debug info**: shows a line each time the world map builds its markers, for example
   `Gwent Players Map 1.0.7: 47 markers on novigrad, map file loaded`. Useful when something does
   not show up (see "Troubleshooting").
+
+Where the card sits follows the map filter (since 1.0.8; it used to be the *Icon placement*
+option):
+
+- **Gwent** filter: only the cards are listed, so each card sits exactly on its merchant's icon.
+- **Default**, **All** and the other filters: the card sits next to the merchant's shop icon, so
+  both stay readable.
 
 ## How it works
 
@@ -159,7 +162,7 @@ reports from players:
 | All Quest Markers Plus | Yes, tested together in game on patch 5.01 (it hooks the same map function, but only edits quest and "?" markers; custom pins work with both) |
 | Quest Levels on Map | Yes |
 | Colored Map Markers | Yes (it changes the minimap, not the world map) |
-| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. Use the combined file from 1.0.7 on (it has both card sizes) |
+| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. Use the combined file from 1.0.7 on (it has both card sizes). Until the combined file is updated for 1.0.8, the cards stay next to the shop icons in the *Gwent* filter too |
 | Missing Gwent Cards Tracker And Trader | Yes |
 | Gwent Card Notification | Yes |
 | Witcher's Path | **No**: both replace `panel_worldmap.redswf` |
@@ -175,13 +178,15 @@ reports from players:
   changes how rewards are given, those may not show as beaten, but new wins are always marked.
 - **Script hooks:** `CR4MapMenu.UpdateEntityPins` (adds the cards to the world map) and
   `CR4Player.SetGwintMinigameState` (notices a won match), both through `@wrapMethod`, plus a
-  field and a method added to `CR4Game`. No vanilla script file is replaced, so Script Merger is
+  field and a method added to `CR4Game` and an event added to `CR4MapMenu` (`OnGwmMapFilter`, called
+  by the mod's map file when the filter changes). No vanilla script file is replaced, so Script Merger is
   not needed.
 - **Map mods:** any mod that replaces `panel_worldmap.redswf` conflicts with this one: only one
   copy of that file can load. **Merged maps and patches** (World Map Merger, Patch HUB, the Witcher
   Upgrade Gear Map combined file) carry a copy of this mod's map: after updating to 1.0.7, rebuild
   or update them. An older merged map keeps working on *Small* (with the old card look), but
-  the *Large* card size needs the 1.0.7 map file. The mod with the higher priority wins (lower number in your mod
+  the *Large* card size needs the 1.0.7 map file, and a map file older than 1.0.8 keeps the cards
+  next to the shop icons in every filter, the *Gwent* filter included. The mod with the higher priority wins (lower number in your mod
   manager or in `mods.settings`; without priorities, the folder name that sorts first wins).
 
 ## Troubleshooting
@@ -225,8 +230,8 @@ Turn on **Debug info** in the options and open the world map:
   pool is collected, merchants give crafting materials and the game keeps no record of the win.
   Those wins are marked only when you beat the merchant with the mod installed (standing near
   their marker); wins from before the mod was installed cannot be detected.
-- **"Next to the merchant icon"** moves the card a fixed distance in the world, so when the map
-  is zoomed far out the two icons can still touch.
+- **Outside the Gwent filter** the card is moved a fixed distance in the world, so when the map
+  is zoomed far out the card and the shop icon can still touch.
 - **Game updates.** The mod ships a modified copy of the game's world map file, built from a
   specific game patch (1.0.5 to 1.0.7: patch 5.01). A future patch that changes the world map needs a new
   version of the mod; until then the mod would show the older map. If the map misbehaves after an
@@ -244,6 +249,11 @@ The mod only writes a few small facts to your save (wins it recorded itself), wh
 ignores once the mod is removed, so it can be uninstalled at any time.
 
 ## Changelog
+
+- **1.0.8** (not released yet): the card position follows the map filter: on the merchant's icon
+  in the *Gwent* filter, next to it in *Default*, *All* and the others. The *Icon placement* option
+  is gone. Removed the "Shopkeeper" card in the Bits, south of Novigrad: the game never spawns that
+  trader (his schedule points to a work spot that does not exist), so he could not be beaten.
 
 - **1.0.7**: every game language (18) built into the main file (Russian by CredereNemo; Ukrainian
   added; most languages are machine-assisted drafts). New **Card size** option: a smaller card in

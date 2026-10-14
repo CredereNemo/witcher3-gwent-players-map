@@ -3,10 +3,6 @@
 panel_gwentplayersmap;Карта игроков в гвинт 1.0.6
 option_gwm_show_pins;Показывать метки гвинта
 option_gwm_show_defeated;Показывать уже обыгранных игроков
-option_gwm_icon_placement;Размещение значка
-preset_value_gwm_side;Рядом со значком торговца
-preset_value_gwm_replace;Заменить значок торговца
-preset_value_gwm_overlap;Поверх значка торговца
 option_gwm_debug;Отладочная информация
 map_category_gwent;Гвинт
 option_gwm_notify;Уведомлять, когда игрок отмечен как обыгранный

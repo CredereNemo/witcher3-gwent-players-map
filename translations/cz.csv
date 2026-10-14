@@ -1,10 +1,6 @@
 # Gwent Players Map - Czech (cz). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Zobrazovat značky gwintu
 option_gwm_show_defeated;Zobrazovat již poražené hráče
-option_gwm_icon_placement;Umístění ikony
-preset_value_gwm_side;Vedle ikony obchodníka
-preset_value_gwm_replace;Nahradit ikonu obchodníka
-preset_value_gwm_overlap;Přes ikonu obchodníka
 option_gwm_debug;Ladicí informace
 map_category_gwent;Gwint
 option_gwm_notify;Upozornit, když je hráč označen jako poražený

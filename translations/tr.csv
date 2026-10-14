@@ -1,10 +1,6 @@
 # Gwent Players Map - Turkish (tr). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Gwent işaretlerini göster
 option_gwm_show_defeated;Zaten yenilen oyuncuları göster
-option_gwm_icon_placement;Simge konumu
-preset_value_gwm_side;Tüccar simgesinin yanında
-preset_value_gwm_replace;Tüccar simgesinin yerine
-preset_value_gwm_overlap;Tüccar simgesinin üstünde
 option_gwm_debug;Hata ayıklama bilgisi
 map_category_gwent;Gwent
 option_gwm_notify;Bir oyuncu yenildi olarak işaretlenince bildir

@@ -96,7 +96,6 @@ function GwmLoadData( d : GwmData )
 	d.AddPin( 93, "skellige", 530.5, -192.6, "Herbalist", "gwm_role_herbalist", 'herbalist_community_herbalist_01', '' );
 	d.AddPin( 94, "skellige", -67.2, 656.2, "Shopkeeper", "gwm_role_shopkeeper", 'kaer_trolde_general_store_01', '' );
 	d.AddPin( 95, "skellige", 112.5, 47.3, "Fishmonger", "gwm_role_fishmonger", 'rannvaig_fish_trader_01', '' );
-	d.AddPin( 98, "novigrad", 631.5, 1554.6, "Shopkeeper", "gwm_role_shopkeeper", 'toderas_village_trader_01', '' );
 	d.AddPin( 99, "novigrad", 530.9, 535.8, "Innkeeper, Inn at the Crossroads", "gwm_role_innkeeper_inn_at_the_crossroads", '', 'gwint_card_menno' );
 	d.SetNote( 30, "gwm_note_rescue_first" );
 	d.SetNote( 37, "gwm_note_rescue_first" );

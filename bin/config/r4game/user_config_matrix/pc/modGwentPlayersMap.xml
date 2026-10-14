@@ -7,19 +7,6 @@
 		<VisibleVars>
 			<Var id="GwmShowPins" displayName="gwm_show_pins" displayType="TOGGLE"/>
 			<Var id="GwmShowDefeated" displayName="gwm_show_defeated" displayType="TOGGLE"/>
-			<Var id="GwmIconPlacement" displayName="gwm_icon_placement" displayType="OPTIONS">
-				<OptionsArray>
-					<Option id="0" displayName="gwm_side">
-						<Entry varId="GwmIconPlacement" value="0"/>
-					</Option>
-					<Option id="1" displayName="gwm_replace">
-						<Entry varId="GwmIconPlacement" value="1"/>
-					</Option>
-					<Option id="2" displayName="gwm_overlap">
-						<Entry varId="GwmIconPlacement" value="2"/>
-					</Option>
-				</OptionsArray>
-			</Var>
 			<Var id="GwmCardSize" displayName="gwm_card_size" displayType="OPTIONS">
 				<OptionsArray>
 					<Option id="0" displayName="gwm_card_small">

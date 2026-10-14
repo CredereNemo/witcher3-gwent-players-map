@@ -12,11 +12,13 @@
 // once the shared card pool is used up, and another mod may change the reward facts.
 //
 // Map file (content/blob0.bundle): a modified panel_worldmap.redswf with the card icons
-// (GwentPlayer / GwentPlayerDisabled) and a "Gwent" map filter for those pin types.
+// (GwentPlayer / GwentPlayerDisabled) and a "Gwent" map filter for those pin types. It also reports the
+// filter it shows (OnGwmMapFilter): in the "Gwent" filter a card sits on its merchant's icon, in any
+// other filter next to it.
 
 function GwmVersion() : string
 {
-	return "1.0.7";
+	return "1.0.8";
 }
 
 struct GwmPin
@@ -40,6 +42,10 @@ class GwmData
 	// Frame labels added to the world map pin sprite (modified panel_worldmap.redswf in content/blob0.bundle).
 	public var iconNormal   : string;	default iconNormal   = "GwentPlayer";
 	public var iconDefeated : string;	default iconDefeated = "GwentPlayerDisabled";
+
+	// The map shows the "Gwent" filter (reported by the map file, see OnGwmMapFilter). Kept for the
+	// session, so the map opens with the cards where the last filter had them.
+	public var gwentFilter : bool;
 
 	private var cardIconsChecked : bool;
 	private var cardIconsLoaded  : bool;
@@ -312,11 +318,6 @@ function GwmInitConfig()
 		config.SetVarValue( 'GwentPlayersMap', 'GwmShowDefeated', "true" );
 		changed = true;
 	}
-	if ( config.GetVarValue( 'GwentPlayersMap', 'GwmIconPlacement' ) == "" )
-	{
-		config.SetVarValue( 'GwentPlayersMap', 'GwmIconPlacement', "0" );
-		changed = true;
-	}
 	if ( config.GetVarValue( 'GwentPlayersMap', 'GwmNotify' ) == "" )
 	{
 		config.SetVarValue( 'GwentPlayersMap', 'GwmNotify', "false" );
@@ -344,18 +345,6 @@ function GwmConfigBool( varName : name, defaultValue : bool ) : bool
 	// The game stores toggles as "true"/"false" or as "1"/"0" depending on how they were set.
 	value = StrLower( value );
 	return value == "true" || value == "1";
-}
-
-// 0 = next to the merchant icon, 1 = replace it, 2 = on top of it.
-function GwmIconPlacement() : int
-{
-	var value : string = theGame.GetInGameConfigWrapper().GetVarValue( 'GwentPlayersMap', 'GwmIconPlacement' );
-
-	if ( value == "" )
-	{
-		return 0;
-	}
-	return StringToInt( value );
 }
 
 // Map data is per world: Velen and Novigrad share one, Toussaint is "bob".
@@ -399,7 +388,7 @@ function GwmIsShopPinType( type : name ) : bool
 		|| type == 'Archmaster' || type == 'BoatBuilder';
 }
 
-// Distance in metres the card is moved east of the merchant icon in "next to" mode
+// Distance in metres the card is moved east of the merchant icon outside the "Gwent" filter
 // (about one icon width at the usual city zoom).
 function GwmSideOffset() : float
 {
@@ -427,10 +416,7 @@ function GwmSideOffset() : float
 	var worldKey      : string;
 	var instances     : array< SCommonMapPinInstance >;
 	var shopPos       : array< Vector >;
-	var shopIds       : array< int >;
-	var hiddenIds     : array< int >;
 	var i, j, k       : int;
-	var placement     : int;
 	var showDefeated  : bool;
 	var pos           : Vector;
 	var playerPos     : Vector;
@@ -468,21 +454,16 @@ function GwmSideOffset() : float
 		return;
 	}
 
-	placement = GwmIconPlacement();
 	largeCards = theGame.GetInGameConfigWrapper().GetVarValue( 'GwentPlayersMap', 'GwmCardSize' ) == "1";
 	showDefeated = GwmConfigBool( 'GwmShowDefeated', true );
 
-	// Shop icons the vanilla map is showing, to line the cards up with (or hide them).
-	if ( placement != 2 )
+	// Shop icons the vanilla map is showing, to line the cards up with.
+	instances = mapManager.GetMapPinInstances( worldPath );
+	for ( i = 0; i < instances.Size(); i += 1 )
 	{
-		instances = mapManager.GetMapPinInstances( worldPath );
-		for ( i = 0; i < instances.Size(); i += 1 )
+		if ( ( instances[ i ].isDiscovered || instances[ i ].isKnown ) && GwmIsShopPinType( instances[ i ].type ) )
 		{
-			if ( ( instances[ i ].isDiscovered || instances[ i ].isKnown ) && GwmIsShopPinType( instances[ i ].type ) )
-			{
-				shopPos.PushBack( instances[ i ].position );
-				shopIds.PushBack( NameToFlashUInt( instances[ i ].tag ) );
-			}
+			shopPos.PushBack( instances[ i ].position );
 		}
 	}
 
@@ -514,7 +495,8 @@ function GwmSideOffset() : float
 
 		pos = Vector( data.pins[ i ].x, data.pins[ i ].y, 0 );
 
-		// Merchant with a shop icon close by: stand next to it or take its place.
+		// Merchant with a shop icon close by: on the icon in the "Gwent" filter (only the cards are
+		// listed there), next to it in every other filter (both icons stay readable).
 		j = -1;
 		if ( IsNameValid( data.pins[ i ].tag ) )
 		{
@@ -532,13 +514,9 @@ function GwmSideOffset() : float
 		if ( j >= 0 )
 		{
 			pos = shopPos[ j ];
-			if ( placement == 0 )
+			if ( !data.gwentFilter )
 			{
 				pos.X += GwmSideOffset();
-			}
-			else if ( placement == 1 )
-			{
-				hiddenIds.PushBack( shopIds[ j ] );
 			}
 		}
 
@@ -573,19 +551,6 @@ function GwmSideOffset() : float
 		added += 1;
 	}
 
-	// "Replace" mode: drop the vanilla shop icons the cards now stand for.
-	if ( hiddenIds.Size() > 0 )
-	{
-		for ( i = flashArray.GetLength() - 1; i >= 0; i -= 1 )
-		{
-			obj = flashArray.GetElementFlashObject( i );
-			if ( obj && hiddenIds.Contains( obj.GetMemberFlashUInt( "id" ) ) )
-			{
-				flashArray.RemoveElement( i );
-			}
-		}
-	}
-
 	if ( showDebug )
 	{
 		if ( data.CardIconsLoaded() )
@@ -596,6 +561,21 @@ function GwmSideOffset() : float
 		{
 			GwmDebugNote( added + " markers on " + worldKey + ", MAP FILE NOT LOADED (cards are invisible)" );
 		}
+	}
+}
+
+// Called by the map file each time it shows a filter category ("All", "Default", "Gwent", ...).
+// A map file without this call (an older merged map) never reports one: the cards stay next to the icons.
+@addMethod( CR4MapMenu ) event OnGwmMapFilter( category : string )
+{
+	var data : GwmData = GwmGetData();
+	var gwent : bool = category == "Gwent";
+
+	// Rebuilding the markers shows the category again, so this only acts when the mode changes.
+	if ( gwent != data.gwentFilter )
+	{
+		data.gwentFilter = gwent;
+		UpdateData( true );
 	}
 }
 

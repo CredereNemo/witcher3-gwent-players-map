@@ -1,10 +1,6 @@
 # Gwent Players Map - Arabic (ar). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;إظهار علامات غوينت
 option_gwm_show_defeated;إظهار اللاعبين الذين هُزموا
-option_gwm_icon_placement;موضع الأيقونة
-preset_value_gwm_side;بجوار أيقونة التاجر
-preset_value_gwm_replace;استبدال أيقونة التاجر
-preset_value_gwm_overlap;فوق أيقونة التاجر
 option_gwm_debug;معلومات التصحيح
 map_category_gwent;غوينت
 option_gwm_notify;الإشعار عند تحديد لاعب كمهزوم

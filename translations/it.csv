@@ -1,10 +1,6 @@
 # Gwent Players Map - Italian (it). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Mostra i segnalini di Gwent
 option_gwm_show_defeated;Mostra i giocatori già sconfitti
-option_gwm_icon_placement;Posizione dell'icona
-preset_value_gwm_side;Accanto all'icona del mercante
-preset_value_gwm_replace;Sostituisci l'icona del mercante
-preset_value_gwm_overlap;Sopra l'icona del mercante
 option_gwm_debug;Informazioni di debug
 map_category_gwent;Gwent
 option_gwm_notify;Notifica quando un giocatore viene segnato come sconfitto

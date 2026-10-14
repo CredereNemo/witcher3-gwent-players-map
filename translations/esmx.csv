@@ -1,10 +1,6 @@
 # Gwent Players Map - Spanish (Latin America) (esmx). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Mostrar marcadores de Gwent
 option_gwm_show_defeated;Mostrar jugadores ya derrotados
-option_gwm_icon_placement;Posición del icono
-preset_value_gwm_side;Junto al icono del comerciante
-preset_value_gwm_replace;Sustituir el icono del comerciante
-preset_value_gwm_overlap;Encima del icono del comerciante
 option_gwm_debug;Información de depuración
 map_category_gwent;Gwent
 option_gwm_notify;Avisar cuando un jugador se marque como derrotado

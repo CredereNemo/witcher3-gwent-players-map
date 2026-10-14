@@ -1,10 +1,6 @@
 # Gwent Players Map - German (de). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Gwint-Markierungen anzeigen
 option_gwm_show_defeated;Bereits besiegte Spieler anzeigen
-option_gwm_icon_placement;Symbolposition
-preset_value_gwm_side;Neben dem Händlersymbol
-preset_value_gwm_replace;Händlersymbol ersetzen
-preset_value_gwm_overlap;Über dem Händlersymbol
 option_gwm_debug;Debug-Infos
 map_category_gwent;Gwint
 option_gwm_notify;Benachrichtigen, wenn ein Spieler als besiegt markiert wird

@@ -1,10 +1,6 @@
 # Gwent Players Map - Hungarian (hu). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Gwint-jelölők megjelenítése
 option_gwm_show_defeated;Már legyőzött játékosok megjelenítése
-option_gwm_icon_placement;Ikon helye
-preset_value_gwm_side;A kereskedő ikonja mellett
-preset_value_gwm_replace;A kereskedő ikonjának cseréje
-preset_value_gwm_overlap;A kereskedő ikonja fölött
 option_gwm_debug;Hibakeresési infó
 map_category_gwent;Gwint
 option_gwm_notify;Értesítés, ha egy játékos legyőzöttként van megjelölve

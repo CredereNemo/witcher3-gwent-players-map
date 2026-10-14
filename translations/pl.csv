@@ -1,10 +1,6 @@
 # Gwent Players Map - Polish (pl). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Pokazuj znaczniki gwinta
 option_gwm_show_defeated;Pokazuj już pokonanych graczy
-option_gwm_icon_placement;Położenie ikony
-preset_value_gwm_side;Obok ikony kupca
-preset_value_gwm_replace;Zastąp ikonę kupca
-preset_value_gwm_overlap;Na ikonie kupca
 option_gwm_debug;Informacje diagnostyczne
 map_category_gwent;Gwint
 option_gwm_notify;Powiadamiaj, gdy gracz zostanie oznaczony jako pokonany

@@ -1,10 +1,6 @@
 # Gwent Players Map - Korean (kr). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;궨트 마커 표시
 option_gwm_show_defeated;이미 이긴 플레이어 표시
-option_gwm_icon_placement;아이콘 위치
-preset_value_gwm_side;상인 아이콘 옆
-preset_value_gwm_replace;상인 아이콘 대체
-preset_value_gwm_overlap;상인 아이콘 위
 option_gwm_debug;디버그 정보
 map_category_gwent;궨트
 option_gwm_notify;플레이어를 이긴 것으로 표시하면 알림
