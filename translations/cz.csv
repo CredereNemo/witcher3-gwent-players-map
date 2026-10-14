@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;Yoana (pomocnice zbrojíře)
 option_gwm_card_size;Velikost karty
 preset_value_gwm_card_small;Malá
 preset_value_gwm_card_large;Velká (klasická)
+option_gwm_show_sellers;Zobrazit, kdo prodává gwintové karty
+gwm_note_sells_cards;Prodává také gwintové karty.

@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;요아나 (갑옷 제작자의 조수)
 option_gwm_card_size;카드 크기
 preset_value_gwm_card_small;작게
 preset_value_gwm_card_large;크게 (기존)
+option_gwm_show_sellers;궨트 카드를 파는 사람 표시
+gwm_note_sells_cards;궨트 카드도 판매합니다.

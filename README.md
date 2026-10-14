@@ -114,6 +114,9 @@ you set them.
 
 - **Show Gwent markers**: turns all the cards on the map on or off.
 - **Show players already beaten**: turn it off to see only the players you still have to beat.
+- **Show who sells Gwent cards** (off by default): players whose shop also sells Gwent cards get
+  *"Also sells Gwent cards."* on their marker, while that shop still has a card you don't own (it
+  checks your inventory, so it works on saves in progress). No card names are shown.
 - **Card size**: *Small* (the default for new installs) or *Large (classic)*, the card of
   1.0.0-1.0.6. Players updating from an earlier version keep the large card until they change it.
 - **Notify when a player is marked as beaten**: shows a notification when a win marks a player
@@ -125,7 +128,7 @@ you set them.
 Where the card sits follows the map filter (since 1.0.8; it used to be the *Icon placement*
 option):
 
-- **Gwent** filter: only the cards are listed, so each card sits exactly on its merchant's icon.
+- **Gwent** filter: only the cards are listed, so each card sits exactly where its player stands.
 - **Default**, **All** and the other filters: the card sits next to the merchant's shop icon, so
   both stay readable.
 
@@ -250,9 +253,10 @@ ignores once the mod is removed, so it can be uninstalled at any time.
 
 ## Changelog
 
-- **1.0.8** (not released yet): the card position follows the map filter: on the merchant's icon
-  in the *Gwent* filter, next to it in *Default*, *All* and the others. The *Icon placement* option
-  is gone. Removed the "Shopkeeper" card in the Bits, south of Novigrad: the game never spawns that
+- **1.0.8** (not released yet): the card position follows the map filter: where the player stands
+  in the *Gwent* filter, next to the shop icon in *Default*, *All* and the others. The *Icon
+  placement* option is gone. New option **Show who sells Gwent cards** (off by default). Russian fix
+  for Stjepan's name (thanks CredereNemo). Removed the "Shopkeeper" card in the Bits, south of Novigrad: the game never spawns that
   trader (his schedule points to a work spot that does not exist), so he could not be beaten.
 
 - **1.0.7**: every game language (18) built into the main file (Russian by CredereNemo; Ukrainian

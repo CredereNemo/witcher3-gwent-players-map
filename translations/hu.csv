@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;Yoana (a páncélkovács segédje)
 option_gwm_card_size;Kártyaméret
 preset_value_gwm_card_small;Kicsi
 preset_value_gwm_card_large;Nagy (klasszikus)
+option_gwm_show_sellers;Mutassa, ki árul gwintkártyákat
+gwm_note_sells_cards;Gwintkártyákat is árul.

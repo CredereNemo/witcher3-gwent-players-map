@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;Yoana (zırhçı yardımcısı)
 option_gwm_card_size;Kart boyutu
 preset_value_gwm_card_small;Küçük
 preset_value_gwm_card_large;Büyük (klasik)
+option_gwm_show_sellers;Gwent kartı satanları göster
+gwm_note_sells_cards;Gwent kartı da satıyor.

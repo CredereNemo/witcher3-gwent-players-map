@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;Yoana (ayudante del armero)
 option_gwm_card_size;Tamaño de la carta
 preset_value_gwm_card_small;Pequeña
 preset_value_gwm_card_large;Grande (clásica)
+option_gwm_show_sellers;Mostrar quién vende cartas de Gwent
+gwm_note_sells_cards;También vende cartas de Gwent.

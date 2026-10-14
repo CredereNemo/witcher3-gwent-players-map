@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;約安娜（鑄甲師的助手）
 option_gwm_card_size;卡牌大小
 preset_value_gwm_card_small;小
 preset_value_gwm_card_large;大（經典）
+option_gwm_show_sellers;显示出售昆特牌的人
+gwm_note_sells_cards;也出售昆特牌。

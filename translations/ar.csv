@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;يوانا (مساعدة صانع الدرو�
 option_gwm_card_size;حجم البطاقة
 preset_value_gwm_card_small;صغير
 preset_value_gwm_card_large;كبير (كلاسيكي)
+option_gwm_show_sellers;إظهار من يبيع بطاقات الغوينت
+gwm_note_sells_cards;يبيع أيضًا بطاقات غوينت.

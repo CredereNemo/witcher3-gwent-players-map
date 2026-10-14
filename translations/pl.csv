@@ -42,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;Yoana (pomocnica płatnerza)
 option_gwm_card_size;Rozmiar karty
 preset_value_gwm_card_small;Mała
 preset_value_gwm_card_large;Duża (klasyczna)
+option_gwm_show_sellers;Pokaż, kto sprzedaje karty do gwinta
+gwm_note_sells_cards;Sprzedaje też karty do gwinta.
