@@ -152,6 +152,7 @@ class GwmData
 	private function CacheStoreCardNames()
 	{
 		var gwint : CR4GwintManager;
+		var card : name;
 		var k : int;
 
 		if ( storeCardNames.Size() == storeCards.Size() )
@@ -162,7 +163,13 @@ class GwmData
 		storeCardNames.Clear();
 		for ( k = 0; k < storeCards.Size(); k += 1 )
 		{
-			storeCardNames.PushBack( gwint.GetCardNameFromItemName( storeCards[ k ] ) );
+			card = gwint.GetCardNameFromItemName( storeCards[ k ] );
+			// The card definitions name one item per card: a copy item (..poor_infantry3) has none.
+			if ( !IsNameValid( card ) )
+			{
+				card = gwint.GetCardNameFromItemName( GwmBaseItemName( storeCards[ k ] ) );
+			}
+			storeCardNames.PushBack( card );
 		}
 	}
 
@@ -215,7 +222,7 @@ class GwmData
 				{
 					text += ", ";
 				}
-				text += NameToString( storeCards[ k ] );
+				text += NameToString( storeCards[ k ] ) + " (card: " + NameToString( storeCardNames[ k ] ) + ")";
 			}
 		}
 		return text;
@@ -745,6 +752,18 @@ function GwmNoteText( pin : GwmPin ) : string
 		return " " + GwmLoc( pin.noteKey, "Must be rescued first." );
 	}
 	return "";
+}
+
+// Item name without its trailing copy number: gwint_card_poor_infantry3 -> gwint_card_poor_infantry.
+function GwmBaseItemName( item : name ) : name
+{
+	var text : string = NameToString( item );
+
+	while ( StrLen( text ) > 0 && StrFindFirst( "0123456789", StrRight( text, 1 ) ) >= 0 )
+	{
+		text = StrLeft( text, StrLen( text ) - 1 );
+	}
+	return StringToName( text );
 }
 
 // "Show who sells Gwent cards" option: one more line while the shop has a card the player lacks.
