@@ -169,6 +169,26 @@ class GwmData
 		return false;
 	}
 
+	// "Debug info": item names of the shop's cards the player lacks (validation aid, not translated).
+	public function MissingStoreCards( idx : int ) : string
+	{
+		var k : int;
+		var text : string;
+
+		for ( k = 0; k < storeNames.Size(); k += 1 )
+		{
+			if ( storeNames[ k ] == pins[ idx ].store && !thePlayer.inv.HasItem( storeCards[ k ] ) )
+			{
+				if ( text != "" )
+				{
+					text += ", ";
+				}
+				text += NameToString( storeCards[ k ] );
+			}
+		}
+		return text;
+	}
+
 	private function PinIndex( id : int ) : int
 	{
 		var i : int;
@@ -475,6 +495,7 @@ function GwmSideOffset() : float
 	var worldKey      : string;
 	var instances     : array< SCommonMapPinInstance >;
 	var shopPos       : array< Vector >;
+	var shopUses      : array< int >;
 	var i, j, k       : int;
 	var showDefeated  : bool;
 	var pos           : Vector;
@@ -488,6 +509,8 @@ function GwmSideOffset() : float
 	var largeCards    : bool;
 	var added         : int;
 	var showSellers   : bool;
+	var description   : string;
+	var missing       : string;
 
 	wrappedMethod( flashArray );
 
@@ -525,6 +548,7 @@ function GwmSideOffset() : float
 		if ( ( instances[ i ].isDiscovered || instances[ i ].isKnown ) && GwmIsShopPinType( instances[ i ].type ) )
 		{
 			shopPos.PushBack( instances[ i ].position );
+			shopUses.PushBack( 0 );
 		}
 	}
 
@@ -574,8 +598,10 @@ function GwmSideOffset() : float
 		}
 		if ( j >= 0 )
 		{
+			// A second card next to the same icon (e.g. two smiths at one forge) goes one step further.
 			pos = shopPos[ j ];
-			pos.X += GwmSideOffset();
+			pos.X += GwmSideOffset() * ( shopUses[ j ] + 1 );
+			shopUses[ j ] += 1;
 		}
 
 		obj = GetMenuFlashValueStorage().CreateTempFlashObject( "red.game.witcher3.data.StaticMapPinData" );
@@ -604,8 +630,17 @@ function GwmSideOffset() : float
 		}
 		// The legend row takes its text from the label, so the label is the same for every card.
 		obj.SetMemberFlashString( "label", GwmLoc( "gwm_label_gwent_player", "Gwent player" ) );
-		obj.SetMemberFlashString( "description", GwmRoleText( data.pins[ i ] ) + " - " + GwmStatusText( data.pins[ i ], defeated, unavailable ) + GwmNoteText( data.pins[ i ] )
-			+ GwmSellerText( showSellers && !unavailable && data.SellsCardsYouLack( i ) ) );
+		description = GwmRoleText( data.pins[ i ] ) + " - " + GwmStatusText( data.pins[ i ], defeated, unavailable ) + GwmNoteText( data.pins[ i ] )
+			+ GwmSellerText( showSellers && !unavailable && data.SellsCardsYouLack( i ) );
+		if ( showDebug && showSellers )
+		{
+			missing = data.MissingStoreCards( i );
+			if ( missing != "" )
+			{
+				description += " [" + missing + "]";
+			}
+		}
+		obj.SetMemberFlashString( "description", description );
 		flashArray.PushBackFlashObject( obj );
 		added += 1;
 	}
