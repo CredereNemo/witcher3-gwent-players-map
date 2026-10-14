@@ -108,7 +108,8 @@ you set them.
 
 ## Options
 
-**Options > Mods > Gwent Players Map** (the title shows the installed version)
+**Options > Mods > Gwent Players Map** (the title is in your game language; the installed version
+is shown by *Debug info*)
 
 ![Options](screenshots/options-1.0.7.jpg)
 
@@ -122,8 +123,8 @@ you set them.
 - **Notify when a player is marked as beaten**: shows a notification when a win marks a player
   on the map (off by default). Turn it on to get a message each time.
 - **Debug info**: shows a line each time the world map builds its markers, for example
-  `Gwent Players Map 1.0.7: 47 markers on novigrad, map file loaded`. Useful when something does
-  not show up (see "Troubleshooting").
+  `Gwent Players Map 1.0.8: 47 markers on novigrad, map file loaded` (the installed version comes
+  first). Useful when something does not show up (see "Troubleshooting").
 
 Where the card sits follows the map filter (since 1.0.8; it used to be the *Icon placement*
 option):
@@ -258,6 +259,8 @@ ignores once the mod is removed, so it can be uninstalled at any time.
   placement* option is gone. New option **Show who sells Gwent cards** (off by default). Russian fix
   for Stjepan's name (thanks CredereNemo). Removed the "Shopkeeper" card in the Bits, south of Novigrad: the game never spawns that
   trader (his schedule points to a work spot that does not exist), so he could not be beaten.
+  The options title is now translated and has no version number (the version is in the Debug info
+  line); thanks CredereNemo for the suggestion.
 
 - **1.0.7**: every game language (18) built into the main file (Russian by CredereNemo; Ukrainian
   added; most languages are machine-assisted drafts). New **Card size** option: a smaller card in

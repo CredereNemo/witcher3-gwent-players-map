@@ -1,6 +1,6 @@
 # Gwent Players Map 1.0.8 - texts to translate. Copy to <lang>.csv (br, de, fr, ru, ...)
 # and translate the part after the semicolon. Keep {role} as it is. Missing lines stay in English.
-panel_gwentplayersmap;Gwent Players Map 1.0.8
+panel_gwentplayersmap;Gwent Players Map
 option_gwm_show_pins;Show Gwent markers
 option_gwm_show_defeated;Show players already beaten
 option_gwm_debug;Debug info
