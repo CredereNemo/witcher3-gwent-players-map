@@ -256,7 +256,8 @@ ignores once the mod is removed, so it can be uninstalled at any time.
 
 - **1.0.8** (not released yet): the card position follows the map filter: where the player stands
   in the *Gwent* filter, next to the shop icon in *Default*, *All* and the others. The *Icon
-  placement* option is gone. New option **Show who sells Gwent cards** (off by default). Russian fix
+  placement* option is gone; if you used *Replace*, switch the map to the *Gwent* filter to see only
+  the cards where the players stand. New option **Show who sells Gwent cards** (off by default). Russian fix
   for Stjepan's name (thanks CredereNemo). Removed the "Shopkeeper" card in the Bits, south of Novigrad: the game never spawns that
   trader (his schedule points to a work spot that does not exist), so he could not be beaten.
   The options title is now translated and has no version number (the version is in the Debug info
