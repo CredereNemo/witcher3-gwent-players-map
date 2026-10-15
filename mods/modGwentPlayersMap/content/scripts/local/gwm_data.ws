@@ -50,12 +50,10 @@ function GwmLoadData( d : GwmData )
 	d.AddPin( 47, "skellige", 1733.6, -1924.6, "Blacksmith", "gwm_role_blacksmith", 'dimun_smith_01', '' );
 	d.AddPin( 48, "skellige", 2761.5, 61.7, "Shopkeeper", "gwm_role_shopkeeper", 'larvik_shopkeeper_01', '' );
 	d.AddPin( 49, "skellige", 2795.8, 70.6, "Innkeeper", "gwm_role_innkeeper", 'larvik_warriors_hall_01', '' );
-	d.AddPin( 50, "skellige", 2830.3, 81.8, "Blacksmith", "gwm_role_blacksmith", 'larvik_smith_01', '' );
 	d.AddPin( 51, "skellige", 2739.7, 64.6, "Armorer", "gwm_role_armorer", 'larvik_armorer_01', '' );
 	d.AddPin( 52, "skellige", 1483.5, 1915.4, "Blacksmith", "gwm_role_blacksmith", 'tuiseach_smith_01', '' );
 	d.AddPin( 53, "skellige", 1527.3, 1909.6, "Innkeeper", "gwm_role_innkeeper", 'tuiseach_inn_owner_01', '' );
 	d.AddPin( 54, "skellige", 1510.0, 1873.0, "Armorer", "gwm_role_armorer", 'tuiseach_armorer_01', '' );
-	d.AddPin( 55, "skellige", -1623.6, 1424.8, "Blacksmith", "gwm_role_blacksmith", 'brokvar_smith_01', '' );
 	d.AddPin( 56, "skellige", -1610.2, 1377.2, "Shopkeeper", "gwm_role_shopkeeper", 'brokvar_shopkeeper_01', '' );
 	d.AddPin( 57, "skellige", -1656.8, 1377.6, "Innkeeper", "gwm_role_innkeeper", 'brokvar_innkeeper_01', '' );
 	d.AddPin( 58, "skellige", -87.3, -971.1, "Armorer", "gwm_role_armorer", 'lugos_keep_smith_01', '' );
@@ -94,8 +92,6 @@ function GwmLoadData( d : GwmData )
 	d.AddPin( 91, "bob", -150.6, -644.4, "Innkeeper", "gwm_role_innkeeper", 'shop_18_cocatrice_inn_innkeeper', '' );
 	d.AddPin( 92, "novigrad", 1486.5, 1546.4, "Shopkeeper", "gwm_role_shopkeeper", 'circus_camp_merchant_01', '' );
 	d.AddPin( 93, "skellige", 530.5, -192.6, "Herbalist", "gwm_role_herbalist", 'herbalist_community_herbalist_01', '' );
-	d.AddPin( 94, "skellige", -67.2, 656.2, "Shopkeeper", "gwm_role_shopkeeper", 'kaer_trolde_general_store_01', '' );
-	d.AddPin( 95, "skellige", 112.5, 47.3, "Fishmonger", "gwm_role_fishmonger", 'rannvaig_fish_trader_01', '' );
 	d.AddPin( 99, "novigrad", 530.9, 535.8, "Innkeeper, Inn at the Crossroads", "gwm_role_innkeeper_inn_at_the_crossroads", '', 'gwint_card_menno' );
 	d.SetNote( 30, "gwm_note_rescue_first" );
 	d.SetNote( 37, "gwm_note_rescue_first" );

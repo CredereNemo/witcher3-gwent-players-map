@@ -123,7 +123,7 @@ is shown by *Debug info*)
 - **Notify when a player is marked as beaten**: shows a notification when a win marks a player
   on the map (off by default). Turn it on to get a message each time.
 - **Debug info**: shows a line each time the world map builds its markers, for example
-  `Gwent Players Map 1.0.8: 47 markers on novigrad, map file loaded` (the installed version comes
+  `Gwent Players Map 1.0.9: 47 markers on novigrad, map file loaded` (the installed version comes
   first). Useful when something does not show up (see "Troubleshooting").
 
 Where the card sits follows the map filter (since 1.0.8; it used to be the *Icon placement*
@@ -166,7 +166,7 @@ reports from players:
 | All Quest Markers Plus | Yes, tested together in game on patch 5.01 (it hooks the same map function, but only edits quest and "?" markers; custom pins work with both) |
 | Quest Levels on Map | Yes |
 | Colored Map Markers | Yes (it changes the minimap, not the world map) |
-| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. With 1.0.8 use the combined file made for it (`WitcherGearMap-GwentPlayersMap-Combined-1.0.3`): an older one still works, but keeps the cards next to the shop icons in the *Gwent* filter too |
+| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. From 1.0.8 on use the combined file made for it (`WitcherGearMap-GwentPlayersMap-Combined-1.0.3`): an older one still works, but keeps the cards next to the shop icons in the *Gwent* filter too |
 | Missing Gwent Cards Tracker And Trader | Yes |
 | Gwent Card Notification | Yes |
 | Witcher's Path | **No**: both replace `panel_worldmap.redswf` |
@@ -187,8 +187,8 @@ reports from players:
   not needed.
 - **Map mods:** any mod that replaces `panel_worldmap.redswf` conflicts with this one: only one
   copy of that file can load. **Merged maps and patches** (World Map Merger, Patch HUB, the Witcher
-  Upgrade Gear Map combined file) carry a copy of this mod's map: after updating to 1.0.8, rebuild
-  or update them. An older merged map keeps working on *Small* (with the old card look), but
+  Upgrade Gear Map combined file) carry a copy of this mod's map: after updating from a version older
+  than 1.0.8, rebuild or update them (1.0.9 did not change the map). An older merged map keeps working on *Small* (with the old card look), but
   the *Large* card size needs the 1.0.7 map file, and a map file older than 1.0.8 keeps the cards
   next to the shop icons in every filter, the *Gwent* filter included. The mod with the higher priority wins (lower number in your mod
   manager or in `mods.settings`; without priorities, the folder name that sorts first wins).
@@ -227,9 +227,8 @@ Turn on **Debug info** in the options and open the world map:
   appearing after a certain quest. Their marker shows a short, spoiler-free note. When the game
   records that a player is gone for good, the card turns grey with "No longer available." Only
   cases confirmed in the game files are marked; for other players the marker stays as it is.
-- **Two smiths have no game record:** the blacksmiths in Larvik and Fyresdal play Gwent but the
-  game keeps no record of beating them. They only turn grey when you beat them with the mod
-  installed.
+- **One smith has no game record:** the Fyresdal blacksmith plays Gwent but the game keeps no
+  record of beating him. He only turns grey when you beat him with the mod installed.
 - **Merchants beaten after the card pool runs out:** once every card from the shared merchant
   pool is collected, merchants give crafting materials and the game keeps no record of the win.
   Those wins are marked only when you beat the merchant with the mod installed (standing near
@@ -237,7 +236,7 @@ Turn on **Debug info** in the options and open the world map:
 - **Outside the Gwent filter** the card is moved a fixed distance in the world, so when the map
   is zoomed far out the card and the shop icon can still touch.
 - **Game updates.** The mod ships a modified copy of the game's world map file, built from a
-  specific game patch (1.0.5 to 1.0.8: patch 5.01). A future patch that changes the world map needs a new
+  specific game patch (1.0.5 to 1.0.9: patch 5.01). A future patch that changes the world map needs a new
   version of the mod; until then the mod would show the older map. If the map misbehaves after an
   update, uninstall the mod until there is a fix.
 - **Limited testing.** Tested on the Steam Remastered edition (DX12), on Linux through Proton, in
@@ -253,6 +252,8 @@ The mod only writes a few small facts to your save (wins it recorded itself), wh
 ignores once the mod is removed, so it can be uninstalled at any time.
 
 ## Changelog
+
+- **1.0.9**: Removed four Skellige cards that could not be beaten: the Kaer Trolde harbor shopkeeper and the Rannvaig fishmonger (not there in game), the Svorlag blacksmith (no Gwent game) and the Larvik blacksmith (the game never recorded wins against him). Thanks to the player who reported them.
 
 - **1.0.8**: the card position follows the map filter: where the player stands
   in the *Gwent* filter, next to the shop icon in *Default*, *All* and the others. The *Icon
