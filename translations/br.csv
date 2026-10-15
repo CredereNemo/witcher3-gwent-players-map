@@ -1,11 +1,7 @@
 # Gwent Players Map - Brazilian Portuguese (br)
-panel_gwentplayersmap;Gwent Players Map 1.0.6
+panel_gwentplayersmap;Gwent Players Map
 option_gwm_show_pins;Mostrar marcadores de Gwent
 option_gwm_show_defeated;Mostrar jogadores já vencidos
-option_gwm_icon_placement;Posição do ícone
-preset_value_gwm_side;Ao lado do ícone do comerciante
-preset_value_gwm_replace;No lugar do ícone do comerciante
-preset_value_gwm_overlap;Sobre o ícone do comerciante
 option_gwm_debug;Informações de depuração
 map_category_gwent;Gwent
 option_gwm_notify;Avisar quando um jogador for marcado como vencido
@@ -47,3 +43,5 @@ gwm_role_yoana_armorer_s_assistant;Yoana (assistente do armeiro)
 option_gwm_card_size;Tamanho da carta
 preset_value_gwm_card_small;Pequena
 preset_value_gwm_card_large;Grande (clássica)
+option_gwm_show_sellers;Mostrar quem vende cartas de Gwent
+gwm_note_sells_cards;Também vende cartas de Gwent.

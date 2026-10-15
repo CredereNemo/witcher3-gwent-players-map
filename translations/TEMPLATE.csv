@@ -1,12 +1,8 @@
-# Gwent Players Map 1.0.7 - texts to translate. Copy to <lang>.csv (br, de, fr, ru, ...)
+# Gwent Players Map 1.0.8 - texts to translate. Copy to <lang>.csv (br, de, fr, ru, ...)
 # and translate the part after the semicolon. Keep {role} as it is. Missing lines stay in English.
-panel_gwentplayersmap;Gwent Players Map 1.0.7
+panel_gwentplayersmap;Gwent Players Map
 option_gwm_show_pins;Show Gwent markers
 option_gwm_show_defeated;Show players already beaten
-option_gwm_icon_placement;Icon placement
-preset_value_gwm_side;Next to the merchant icon
-preset_value_gwm_replace;Replace the merchant icon
-preset_value_gwm_overlap;On top of the merchant icon
 option_gwm_debug;Debug info
 option_gwm_card_size;Card size
 preset_value_gwm_card_small;Small
@@ -22,6 +18,8 @@ gwm_notify_beaten;Gwent: {role} beaten. Marked on the map.
 gwm_status_unavailable;No longer available.
 gwm_note_may_leave;May no longer be available after a certain quest.
 gwm_note_rescue_first;Must be rescued first.
+option_gwm_show_sellers;Show who sells Gwent cards
+gwm_note_sells_cards;Also sells Gwent cards.
 gwm_role_alchemist;Alchemist
 gwm_role_armorer;Armorer
 gwm_role_barber;Barber

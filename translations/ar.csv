@@ -1,10 +1,6 @@
 # Gwent Players Map - Arabic (ar). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;إظهار علامات غوينت
 option_gwm_show_defeated;إظهار اللاعبين الذين هُزموا
-option_gwm_icon_placement;موضع الأيقونة
-preset_value_gwm_side;بجوار أيقونة التاجر
-preset_value_gwm_replace;استبدال أيقونة التاجر
-preset_value_gwm_overlap;فوق أيقونة التاجر
 option_gwm_debug;معلومات التصحيح
 map_category_gwent;غوينت
 option_gwm_notify;الإشعار عند تحديد لاعب كمهزوم
@@ -46,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;يوانا (مساعدة صانع الدرو�
 option_gwm_card_size;حجم البطاقة
 preset_value_gwm_card_small;صغير
 preset_value_gwm_card_large;كبير (كلاسيكي)
+option_gwm_show_sellers;إظهار من يبيع بطاقات الغوينت
+gwm_note_sells_cards;يبيع أيضًا بطاقات غوينت.

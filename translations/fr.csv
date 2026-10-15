@@ -1,10 +1,6 @@
 # Gwent Players Map - French (fr). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Afficher les marqueurs de Gwynt
 option_gwm_show_defeated;Afficher les joueurs déjà battus
-option_gwm_icon_placement;Position de l'icône
-preset_value_gwm_side;À côté de l'icône du marchand
-preset_value_gwm_replace;Remplacer l'icône du marchand
-preset_value_gwm_overlap;Par-dessus l'icône du marchand
 option_gwm_debug;Infos de débogage
 map_category_gwent;Gwynt
 option_gwm_notify;Notifier quand un joueur est marqué comme battu
@@ -46,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;Yoana (assistante de l'armurier)
 option_gwm_card_size;Taille des cartes
 preset_value_gwm_card_small;Petite
 preset_value_gwm_card_large;Grande (classique)
+option_gwm_show_sellers;Afficher qui vend des cartes de Gwynt
+gwm_note_sells_cards;Vend aussi des cartes de Gwynt.

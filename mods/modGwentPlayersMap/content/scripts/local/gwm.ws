@@ -8,15 +8,19 @@
 // A few players stop appearing after a story event the game records as a fact (goneFacts, found in
 // the game's community spawn trees): their card is greyed out as "No longer available." Some pins
 // carry a short spoiler-free note (noteKey), e.g. a player who has to be rescued first.
+// Players whose shop sells Gwent cards (store) can show "Also sells Gwent cards." while the player
+// lacks one of those cards ("Show who sells Gwent cards" option, off by default).
 // Merchants also get gwm_won_<pinId> when beaten next to their pin: the game records nothing
 // once the shared card pool is used up, and another mod may change the reward facts.
 //
 // Map file (content/blob0.bundle): a modified panel_worldmap.redswf with the card icons
-// (GwentPlayer / GwentPlayerDisabled) and a "Gwent" map filter for those pin types.
+// (GwentPlayer / GwentPlayerDisabled) and a "Gwent" map filter for those pin types. It also reports the
+// filter it shows (OnGwmMapFilter): in the "Gwent" filter a card sits where its player stands, in any
+// other filter next to the merchant's shop icon.
 
 function GwmVersion() : string
 {
-	return "1.0.7";
+	return "1.0.8";
 }
 
 struct GwmPin
@@ -31,15 +35,28 @@ struct GwmPin
 	var card  : name;
 	var noteKey   : string;			// optional spoiler-free note, localization key
 	var goneFacts : array< string >;	// any of these facts > 0: the player no longer appears
+	var store     : string;				// shop that sells Gwent cards (see AddStoreCard), or ""
+	var storeGoneFact : string;			// fact > 0: no longer sells them (e.g. someone else runs the shop)
 }
 
 class GwmData
 {
 	public var pins : array< GwmPin >;
 
+	// Gwent cards each shop sells: storeNames[ k ] sells storeCards[ k ].
+	private var storeNames : array< string >;
+	private var storeCards : array< name >;
+	private var storeExactCards : array< name >;	// collection name: item without gwint_card_ (poor_infantry3)
+	private var storeBaseCards  : array< name >;	// ...and without the copy number (poor_infantry)
+	private var storeCardNames : array< name >;	// Gwent card of each item (cached, see CacheStoreCardNames)
+
 	// Frame labels added to the world map pin sprite (modified panel_worldmap.redswf in content/blob0.bundle).
 	public var iconNormal   : string;	default iconNormal   = "GwentPlayer";
 	public var iconDefeated : string;	default iconDefeated = "GwentPlayerDisabled";
+
+	// The map shows the "Gwent" filter (reported by the map file, see OnGwmMapFilter). Kept for the
+	// session, so the map opens with the cards where the last filter had them.
+	public var gwentFilter : bool;
 
 	private var cardIconsChecked : bool;
 	private var cardIconsLoaded  : bool;
@@ -47,6 +64,11 @@ class GwmData
 	public function Init()
 	{
 		pins.Clear();
+		storeNames.Clear();
+		storeCards.Clear();
+		storeExactCards.Clear();
+		storeBaseCards.Clear();
+		storeCardNames.Clear();
 		GwmLoadData( this );
 	}
 
@@ -107,6 +129,110 @@ class GwmData
 			pin.goneFacts.PushBack( fact );
 			pins[ i ] = pin;
 		}
+	}
+
+	public function AddStoreCard( store : string, card : name, exactCard : name, baseCard : name )
+	{
+		storeNames.PushBack( store );
+		storeCards.PushBack( card );
+		storeExactCards.PushBack( exactCard );
+		storeBaseCards.PushBack( baseCard );
+	}
+
+	public function SetStore( id : int, store : string, goneFact : string )
+	{
+		var i : int = PinIndex( id );
+		var pin : GwmPin;
+
+		if ( i >= 0 )
+		{
+			pin = pins[ i ];
+			pin.store = store;
+			pin.storeGoneFact = goneFact;
+			pins[ i ] = pin;
+		}
+	}
+
+	// The Gwent card an item stands for, from the card definitions; looked up once per session
+	// (GetCardNameFromItemName walks every card definition).
+	private function CacheStoreCardNames()
+	{
+		var gwint : CR4GwintManager;
+		var k : int;
+
+		if ( storeCardNames.Size() == storeCards.Size() )
+		{
+			return;
+		}
+		gwint = theGame.GetGwintManager();
+		storeCardNames.Clear();
+		for ( k = 0; k < storeCards.Size(); k += 1 )
+		{
+			storeCardNames.PushBack( gwint.GetCardNameFromItemName( storeCards[ k ] ) );
+		}
+	}
+
+	// The player has that card: the item itself, or the card in the Gwent collection (bought cards
+	// live only there). Copy items such as gwint_card_poor_infantry3 have no card definition, and the
+	// collection names the card poor_infantry, so the names derived from the item are checked too.
+	private function StoreCardOwned( k : int ) : bool
+	{
+		var gwint : CR4GwintManager = theGame.GetGwintManager();
+
+		if ( thePlayer.inv.HasItem( storeCards[ k ] ) )
+		{
+			return true;
+		}
+		CacheStoreCardNames();
+		if ( IsNameValid( storeCardNames[ k ] ) && gwint.HasCardInCollection( storeCardNames[ k ] ) )
+		{
+			return true;
+		}
+		return gwint.HasCardInCollection( storeExactCards[ k ] ) || gwint.HasCardInCollection( storeBaseCards[ k ] );
+	}
+
+	// The pin's shop still has a Gwent card the player does not have. Checked each time, so cards
+	// obtained before the mod was installed count too.
+	public function SellsCardsYouLack( idx : int ) : bool
+	{
+		var k : int;
+
+		if ( pins[ idx ].store == "" )
+		{
+			return false;
+		}
+		if ( pins[ idx ].storeGoneFact != "" && FactsQuerySum( pins[ idx ].storeGoneFact ) > 0 )
+		{
+			return false;
+		}
+		for ( k = 0; k < storeNames.Size(); k += 1 )
+		{
+			if ( storeNames[ k ] == pins[ idx ].store && !StoreCardOwned( k ) )
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// "Debug info": item names of the shop's cards the player lacks (validation aid, not translated).
+	public function MissingStoreCards( idx : int ) : string
+	{
+		var k : int;
+		var text : string;
+
+		for ( k = 0; k < storeNames.Size(); k += 1 )
+		{
+			if ( storeNames[ k ] == pins[ idx ].store && !StoreCardOwned( k ) )
+			{
+				if ( text != "" )
+				{
+					text += ", ";
+				}
+				text += NameToString( storeCards[ k ] );
+			}
+		}
+		return text;
 	}
 
 	private function PinIndex( id : int ) : int
@@ -312,9 +438,9 @@ function GwmInitConfig()
 		config.SetVarValue( 'GwentPlayersMap', 'GwmShowDefeated', "true" );
 		changed = true;
 	}
-	if ( config.GetVarValue( 'GwentPlayersMap', 'GwmIconPlacement' ) == "" )
+	if ( config.GetVarValue( 'GwentPlayersMap', 'GwmShowSellers' ) == "" )
 	{
-		config.SetVarValue( 'GwentPlayersMap', 'GwmIconPlacement', "0" );
+		config.SetVarValue( 'GwentPlayersMap', 'GwmShowSellers', "false" );
 		changed = true;
 	}
 	if ( config.GetVarValue( 'GwentPlayersMap', 'GwmNotify' ) == "" )
@@ -344,18 +470,6 @@ function GwmConfigBool( varName : name, defaultValue : bool ) : bool
 	// The game stores toggles as "true"/"false" or as "1"/"0" depending on how they were set.
 	value = StrLower( value );
 	return value == "true" || value == "1";
-}
-
-// 0 = next to the merchant icon, 1 = replace it, 2 = on top of it.
-function GwmIconPlacement() : int
-{
-	var value : string = theGame.GetInGameConfigWrapper().GetVarValue( 'GwentPlayersMap', 'GwmIconPlacement' );
-
-	if ( value == "" )
-	{
-		return 0;
-	}
-	return StringToInt( value );
 }
 
 // Map data is per world: Velen and Novigrad share one, Toussaint is "bob".
@@ -399,7 +513,7 @@ function GwmIsShopPinType( type : name ) : bool
 		|| type == 'Archmaster' || type == 'BoatBuilder';
 }
 
-// Distance in metres the card is moved east of the merchant icon in "next to" mode
+// Distance in metres the card is moved east of the merchant icon outside the "Gwent" filter
 // (about one icon width at the usual city zoom).
 function GwmSideOffset() : float
 {
@@ -427,10 +541,8 @@ function GwmSideOffset() : float
 	var worldKey      : string;
 	var instances     : array< SCommonMapPinInstance >;
 	var shopPos       : array< Vector >;
-	var shopIds       : array< int >;
-	var hiddenIds     : array< int >;
+	var shopUses      : array< int >;
 	var i, j, k       : int;
-	var placement     : int;
 	var showDefeated  : bool;
 	var pos           : Vector;
 	var playerPos     : Vector;
@@ -442,6 +554,9 @@ function GwmSideOffset() : float
 	var showDebug     : bool;
 	var largeCards    : bool;
 	var added         : int;
+	var showSellers   : bool;
+	var description   : string;
+	var missing       : string;
 
 	wrappedMethod( flashArray );
 
@@ -468,21 +583,18 @@ function GwmSideOffset() : float
 		return;
 	}
 
-	placement = GwmIconPlacement();
 	largeCards = theGame.GetInGameConfigWrapper().GetVarValue( 'GwentPlayersMap', 'GwmCardSize' ) == "1";
 	showDefeated = GwmConfigBool( 'GwmShowDefeated', true );
+	showSellers = GwmConfigBool( 'GwmShowSellers', false );
 
-	// Shop icons the vanilla map is showing, to line the cards up with (or hide them).
-	if ( placement != 2 )
+	// Shop icons the vanilla map is showing, to line the cards up with.
+	instances = mapManager.GetMapPinInstances( worldPath );
+	for ( i = 0; i < instances.Size(); i += 1 )
 	{
-		instances = mapManager.GetMapPinInstances( worldPath );
-		for ( i = 0; i < instances.Size(); i += 1 )
+		if ( ( instances[ i ].isDiscovered || instances[ i ].isKnown ) && GwmIsShopPinType( instances[ i ].type ) )
 		{
-			if ( ( instances[ i ].isDiscovered || instances[ i ].isKnown ) && GwmIsShopPinType( instances[ i ].type ) )
-			{
-				shopPos.PushBack( instances[ i ].position );
-				shopIds.PushBack( NameToFlashUInt( instances[ i ].tag ) );
-			}
+			shopPos.PushBack( instances[ i ].position );
+			shopUses.PushBack( 0 );
 		}
 	}
 
@@ -514,9 +626,10 @@ function GwmSideOffset() : float
 
 		pos = Vector( data.pins[ i ].x, data.pins[ i ].y, 0 );
 
-		// Merchant with a shop icon close by: stand next to it or take its place.
+		// "Gwent" filter (only the cards are listed): the card stays where the player stands.
+		// Any other filter: a merchant with a shop icon close by gets the card next to that icon.
 		j = -1;
-		if ( IsNameValid( data.pins[ i ].tag ) )
+		if ( IsNameValid( data.pins[ i ].tag ) && !data.gwentFilter )
 		{
 			bestDist = 30 * 30;
 			for ( k = 0; k < shopPos.Size(); k += 1 )
@@ -531,15 +644,10 @@ function GwmSideOffset() : float
 		}
 		if ( j >= 0 )
 		{
+			// A second card next to the same icon (e.g. two smiths at one forge) goes one step further.
 			pos = shopPos[ j ];
-			if ( placement == 0 )
-			{
-				pos.X += GwmSideOffset();
-			}
-			else if ( placement == 1 )
-			{
-				hiddenIds.PushBack( shopIds[ j ] );
-			}
+			pos.X += GwmSideOffset() * ( shopUses[ j ] + 1 );
+			shopUses[ j ] += 1;
 		}
 
 		obj = GetMenuFlashValueStorage().CreateTempFlashObject( "red.game.witcher3.data.StaticMapPinData" );
@@ -568,22 +676,19 @@ function GwmSideOffset() : float
 		}
 		// The legend row takes its text from the label, so the label is the same for every card.
 		obj.SetMemberFlashString( "label", GwmLoc( "gwm_label_gwent_player", "Gwent player" ) );
-		obj.SetMemberFlashString( "description", GwmRoleText( data.pins[ i ] ) + " - " + GwmStatusText( data.pins[ i ], defeated, unavailable ) + GwmNoteText( data.pins[ i ] ) );
-		flashArray.PushBackFlashObject( obj );
-		added += 1;
-	}
-
-	// "Replace" mode: drop the vanilla shop icons the cards now stand for.
-	if ( hiddenIds.Size() > 0 )
-	{
-		for ( i = flashArray.GetLength() - 1; i >= 0; i -= 1 )
+		description = GwmRoleText( data.pins[ i ] ) + " - " + GwmStatusText( data.pins[ i ], defeated, unavailable ) + GwmNoteText( data.pins[ i ] )
+			+ GwmSellerText( showSellers && !unavailable && data.SellsCardsYouLack( i ) );
+		if ( showDebug && showSellers )
 		{
-			obj = flashArray.GetElementFlashObject( i );
-			if ( obj && hiddenIds.Contains( obj.GetMemberFlashUInt( "id" ) ) )
+			missing = data.MissingStoreCards( i );
+			if ( missing != "" )
 			{
-				flashArray.RemoveElement( i );
+				description += " [" + missing + "]";
 			}
 		}
+		obj.SetMemberFlashString( "description", description );
+		flashArray.PushBackFlashObject( obj );
+		added += 1;
 	}
 
 	if ( showDebug )
@@ -596,6 +701,21 @@ function GwmSideOffset() : float
 		{
 			GwmDebugNote( added + " markers on " + worldKey + ", MAP FILE NOT LOADED (cards are invisible)" );
 		}
+	}
+}
+
+// Called by the map file each time it shows a filter category ("All", "Default", "Gwent", ...).
+// A map file without this call (an older merged map) never reports one: the cards stay next to the icons.
+@addMethod( CR4MapMenu ) event OnGwmMapFilter( category : string )
+{
+	var data : GwmData = GwmGetData();
+	var gwent : bool = category == "Gwent";
+
+	// Rebuilding the markers shows the category again, so this only acts when the mode changes.
+	if ( gwent != data.gwentFilter )
+	{
+		data.gwentFilter = gwent;
+		UpdateData( true );
 	}
 }
 
@@ -639,6 +759,16 @@ function GwmNoteText( pin : GwmPin ) : string
 		return " " + GwmLoc( pin.noteKey, "Must be rescued first." );
 	}
 	return "";
+}
+
+// "Show who sells Gwent cards" option: one more line while the shop has a card the player lacks.
+function GwmSellerText( show : bool ) : string
+{
+	if ( !show )
+	{
+		return "";
+	}
+	return " " + GwmLoc( "gwm_note_sells_cards", "Also sells Gwent cards." );
 }
 
 // Text shown to the player: the translation from the mod's .w3strings, or the English text when

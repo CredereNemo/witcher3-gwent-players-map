@@ -1,10 +1,6 @@
 # Gwent Players Map - Japanese (jp). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;グウェントのマーカーを表示
 option_gwm_show_defeated;倒したプレイヤーを表示
-option_gwm_icon_placement;アイコンの位置
-preset_value_gwm_side;商人アイコンの横
-preset_value_gwm_replace;商人アイコンと置き換え
-preset_value_gwm_overlap;商人アイコンの上
 option_gwm_debug;デバッグ情報
 map_category_gwent;グウェント
 option_gwm_notify;プレイヤーを倒したと記録したときに通知
@@ -46,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;ヨアナ（防具職人の助手）
 option_gwm_card_size;カードのサイズ
 preset_value_gwm_card_small;小
 preset_value_gwm_card_large;大（従来）
+option_gwm_show_sellers;グウェントカードを売る人を表示
+gwm_note_sells_cards;グウェントカードも販売しています。

@@ -1,10 +1,6 @@
 # Gwent Players Map - Simplified Chinese (cn). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;显示昆特牌标记
 option_gwm_show_defeated;显示已击败的玩家
-option_gwm_icon_placement;图标位置
-preset_value_gwm_side;在商人图标旁边
-preset_value_gwm_replace;替换商人图标
-preset_value_gwm_overlap;覆盖在商人图标上
 option_gwm_debug;调试信息
 map_category_gwent;昆特牌
 option_gwm_notify;玩家被标记为已击败时通知
@@ -46,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;约安娜（铸甲师的助手）
 option_gwm_card_size;卡牌大小
 preset_value_gwm_card_small;小
 preset_value_gwm_card_large;大（经典）
+option_gwm_show_sellers;顯示販售昆特牌的人
+gwm_note_sells_cards;也販售昆特牌。

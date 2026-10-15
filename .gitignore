@@ -1,0 +1,16 @@
+/*
+!/.gitignore
+!/LICENSE
+!/README.md
+!/bin/
+!/mods/
+!/screenshots/
+!/translations/
+__pycache__/
+*.bak
+*.orig
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

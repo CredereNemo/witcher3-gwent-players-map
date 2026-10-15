@@ -1,10 +1,6 @@
 # Gwent Players Map - Ukrainian (ua). Machine-assisted draft; native review welcome.
 option_gwm_show_pins;Показувати мітки гвинта
 option_gwm_show_defeated;Показувати вже переможених гравців
-option_gwm_icon_placement;Розташування значка
-preset_value_gwm_side;Поруч зі значком торговця
-preset_value_gwm_replace;Замінити значок торговця
-preset_value_gwm_overlap;Поверх значка торговця
 option_gwm_debug;Налагоджувальна інформація
 map_category_gwent;Гвинт
 option_gwm_notify;Сповіщати, коли гравця позначено як переможеного
@@ -46,3 +42,5 @@ gwm_role_yoana_armorer_s_assistant;Йоана (помічниця зброяра
 option_gwm_card_size;Розмір карти
 preset_value_gwm_card_small;Малий
 preset_value_gwm_card_large;Великий (класичний)
+option_gwm_show_sellers;Показувати, хто продає карти для гвинта
+gwm_note_sells_cards;Також продає карти для гвинта.
