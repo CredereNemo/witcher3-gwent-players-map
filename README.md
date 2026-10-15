@@ -166,7 +166,7 @@ reports from players:
 | All Quest Markers Plus | Yes, tested together in game on patch 5.01 (it hooks the same map function, but only edits quest and "?" markers; custom pins work with both) |
 | Quest Levels on Map | Yes |
 | Colored Map Markers | Yes (it changes the minimap, not the world map) |
-| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. Use the combined file from 1.0.7 on (it has both card sizes). Until the combined file is updated for 1.0.8, the cards stay next to the shop icons in the *Gwent* filter too |
+| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. With 1.0.8 use the combined file made for it (`WitcherGearMap-GwentPlayersMap-Combined-1.0.3`): an older one still works, but keeps the cards next to the shop icons in the *Gwent* filter too |
 | Missing Gwent Cards Tracker And Trader | Yes |
 | Gwent Card Notification | Yes |
 | Witcher's Path | **No**: both replace `panel_worldmap.redswf` |
@@ -187,7 +187,7 @@ reports from players:
   not needed.
 - **Map mods:** any mod that replaces `panel_worldmap.redswf` conflicts with this one: only one
   copy of that file can load. **Merged maps and patches** (World Map Merger, Patch HUB, the Witcher
-  Upgrade Gear Map combined file) carry a copy of this mod's map: after updating to 1.0.7, rebuild
+  Upgrade Gear Map combined file) carry a copy of this mod's map: after updating to 1.0.8, rebuild
   or update them. An older merged map keeps working on *Small* (with the old card look), but
   the *Large* card size needs the 1.0.7 map file, and a map file older than 1.0.8 keeps the cards
   next to the shop icons in every filter, the *Gwent* filter included. The mod with the higher priority wins (lower number in your mod
@@ -237,7 +237,7 @@ Turn on **Debug info** in the options and open the world map:
 - **Outside the Gwent filter** the card is moved a fixed distance in the world, so when the map
   is zoomed far out the card and the shop icon can still touch.
 - **Game updates.** The mod ships a modified copy of the game's world map file, built from a
-  specific game patch (1.0.5 to 1.0.7: patch 5.01). A future patch that changes the world map needs a new
+  specific game patch (1.0.5 to 1.0.8: patch 5.01). A future patch that changes the world map needs a new
   version of the mod; until then the mod would show the older map. If the map misbehaves after an
   update, uninstall the mod until there is a fix.
 - **Limited testing.** Tested on the Steam Remastered edition (DX12), on Linux through Proton, in
@@ -254,7 +254,7 @@ ignores once the mod is removed, so it can be uninstalled at any time.
 
 ## Changelog
 
-- **1.0.8** (not released yet): the card position follows the map filter: where the player stands
+- **1.0.8**: the card position follows the map filter: where the player stands
   in the *Gwent* filter, next to the shop icon in *Default*, *All* and the others. The *Icon
   placement* option is gone; if you used *Replace*, switch the map to the *Gwent* filter to see only
   the cards where the players stand. New option **Show who sells Gwent cards** (off by default). Russian fix
