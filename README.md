@@ -38,8 +38,8 @@ already beaten. The legend row counts the players and jumps between them.*
 - Covers White Orchard, Velen, Novigrad, Oxenfurt, Skellige and Toussaint, including a few
   merchants added by Hearts of Stone and Blood and Wine.
 - Options menu: hide the markers, hide the players already beaten (show only the ones left),
-  choose where the card goes relative to the merchant's own map icon, turn the "beaten"
-  notification on or off, and a "Debug info" switch.
+  show which players also sell Gwent cards, pick the card size, turn the "beaten" notification on
+  or off, and a "Debug info" switch.
 
 ## Good to know: what a merchant gives you
 
@@ -117,7 +117,7 @@ is shown by *Debug info*)
 - **Show players already beaten**: turn it off to see only the players you still have to beat.
 - **Show who sells Gwent cards** (off by default): players whose shop also sells Gwent cards get
   *"Also sells Gwent cards."* on their marker, while that shop still has a card you don't own (it
-  checks your inventory, so it works on saves in progress). No card names are shown.
+  checks your Gwent collection, so it works on saves in progress). No card names are shown.
 - **Card size**: *Small* (the default for new installs) or *Large (classic)*, the card of
   1.0.0-1.0.6. Players updating from an earlier version keep the large card until they change it.
 - **Notify when a player is marked as beaten**: shows a notification when a win marks a player
