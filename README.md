@@ -158,40 +158,30 @@ world map file (`panel_worldmap.redswf`, inside `blob0.bundle`), built from the 
 
 ## Compatibility
 
-Checked against these mods (their files and scripts, not every combination in game), plus
-reports from players:
+**Works together:** All Quest Markers Plus (tested in game), Quest Levels on Map, Colored Map
+Markers, Missing Gwent Cards Tracker And Trader, Gwent Card Notification and Seamless HUDs Maps
+(give Seamless a higher priority than this mod). Gwent overhauls like Gwent Redux work too.
 
-| Mod | Works together? |
-| --- | --- |
-| All Quest Markers Plus | Yes, tested together in game on patch 5.01 (it hooks the same map function, but only edits quest and "?" markers; custom pins work with both) |
-| Quest Levels on Map | Yes |
-| Colored Map Markers | Yes (it changes the minimap, not the world map) |
-| [Witcher Upgrade Gear Map](https://github.com/mateusands/witcher3-witcher-gear-map) | Yes, with its optional combined map file (`WitcherGearMap-GwentPlayersMap-Combined`), one map with both mods' icons and filters; tested together in game on patch 5.01. From 1.0.8 on use the combined file made for it (`WitcherGearMap-GwentPlayersMap-Combined-1.0.3`): an older one still works, but keeps the cards next to the shop icons in the *Gwent* filter too |
-| Missing Gwent Cards Tracker And Trader | Yes |
-| Gwent Card Notification | Yes |
-| Witcher's Path | **No**: both replace `panel_worldmap.redswf` |
-| Map Quest Objectives | **No**: both replace `panel_worldmap.redswf` |
-| True Map POIs | Unknown: it ships the map menu precompiled, which may switch this mod's map hook off |
-| Seamless HUDs Maps | Yes, reported by players: give Seamless HUDs Maps a **higher priority** (lower number) than this mod; the cards then use its map style |
-| The Stable - Roach-Horse Customization | Yes, with the compatibility patch in [Witcher 3 Remastered - Patch HUB](https://www.nexusmods.com/witcher3/mods/13834) by rhazzy (both mods replace `panel_worldmap.redswf`, so they do not work together without it). Check its page for the version matching this mod and your game patch |
-| [Quest Level Markers](https://www.nexusmods.com/witcher3/mods/13121) | Yes, with the compatibility patch in [Witcher 3 Remastered - Patch HUB](https://www.nexusmods.com/witcher3/mods/13834) by rhazzy (it also has a patch for this mod + The Stable + Quest Level Markers together) |
-| [World Map Merger](https://www.nexusmods.com/witcher3/mods/13846) | Can combine several mods that replace `panel_worldmap.redswf` into one (Vortex only for now). Its author says it supports Gwent Players Map; I haven't tested it myself (I play on Linux without Vortex). If you try it, please tell me how it goes and I'll update this table |
+**Needs a combined map file:** mods that also replace the world map (`panel_worldmap.redswf`),
+because only one copy of that file can load:
 
-- **Gwent overhauls (Gwent Redux and similar):** the markers work the same. Merchants beaten
-  before installing this mod are detected through the game's own reward records; if an overhaul
-  changes how rewards are given, those may not show as beaten, but new wins are always marked.
-- **Script hooks:** `CR4MapMenu.UpdateEntityPins` (adds the cards to the world map) and
-  `CR4Player.SetGwintMinigameState` (notices a won match), both through `@wrapMethod`, plus a
-  field and a method added to `CR4Game` and an event added to `CR4MapMenu` (`OnGwmMapFilter`, called
-  by the mod's map file when the filter changes). No vanilla script file is replaced, so Script Merger is
-  not needed.
-- **Map mods:** any mod that replaces `panel_worldmap.redswf` conflicts with this one: only one
-  copy of that file can load. **Merged maps and patches** (World Map Merger, Patch HUB, the Witcher
-  Upgrade Gear Map combined file) carry a copy of this mod's map: after updating from a version older
-  than 1.0.8, rebuild or update them (1.0.9 did not change the map). An older merged map keeps working on *Small* (with the old card look), but
-  the *Large* card size needs the 1.0.7 map file, and a map file older than 1.0.8 keeps the cards
-  next to the shop icons in every filter, the *Gwent* filter included. The mod with the higher priority wins (lower number in your mod
-  manager or in `mods.settings`; without priorities, the folder name that sorts first wins).
+- [Witcher Upgrade Gear Map](https://www.nexusmods.com/witcher3/mods/14157): use its optional
+  combined file.
+- The Stable and Quest Level Markers: patches in
+  [Witcher 3 Remastered - Patch HUB](https://www.nexusmods.com/witcher3/mods/13834) by rhazzy.
+- [Smooth Map](https://www.nexusmods.com/witcher3/mods/13530): use its Gwent Players Map version and
+  give it a higher priority (load it above this mod).
+- Other map mods: [World Map Merger](https://www.nexusmods.com/witcher3/mods/13846) (Vortex only;
+  I haven't tested it).
+
+After updating this mod, update your combined map file too. An older one keeps working, but the
+cards stay next to the shop icons in every filter.
+
+**Not compatible:** Witcher's Path and Map Quest Objectives (both replace the world map, no patch
+yet). True Map POIs is untested: it ships the map menu precompiled, which may switch this mod off.
+
+No vanilla script is replaced (only `@wrapMethod` hooks on `CR4MapMenu.UpdateEntityPins` and
+`CR4Player.SetGwintMinigameState`), so Script Merger is not needed.
 
 ## Troubleshooting
 
@@ -299,9 +289,6 @@ the map icon and the map filter were written by the AI, and I tested the mod in 
   and contributors ([untamed0/witcher3map](https://github.com/untamed0/witcher3map)), licensed
   under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). The positions
   were converted to in-game coordinates and corrected against the game files.
-- [Gwent Card Notification](https://www.nexusmods.com/witcher3/mods/13409) by funkyblackcat,
-  used as a reference for the options menu, string files and bundle layout.
-- Witcher's Path, used as a reference for adding a filter to the world map.
 - [JPEXS Free Flash Decompiler](https://github.com/jindrapetrik/jpexs-decompiler), used to edit
   the map's ActionScript.
 - Translations: [CredereNemo](https://github.com/CredereNemo) (Russian), LootGoBrrr (Chinese) and
